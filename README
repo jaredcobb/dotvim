@@ -1,0 +1,7 @@
+Installation
+
+    git clone git://github.com/jaredcobb/dotvim.git ~/.vim
+
+Symlinks
+
+    ln -s ~/dotfiles/vimrc ~/.vimrc
