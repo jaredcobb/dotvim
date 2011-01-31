@@ -31,11 +31,13 @@ set hlsearch                        " highlight search results
 set autowrite                       " write file when switching between files
 set incsearch                       " incremental search results
 set go-=T                           " hide macvim toolbar
-set completeopt=longest,menuone     " autocomplete will insert longest common text of all matches
+set completeopt=longest,menuone,preview
 
 syntax on							" turn on syntax highlighting
 colorscheme desert					" color scheme
 
+" tweak autocompletion colors
+highlight Pmenu guibg=#000000 guifg=#00d700
 
 "////       PLUGIN CONFIGURATIONS       ////"
 
@@ -46,7 +48,6 @@ call pathogen#helptags()
 let g:miniBufExplorerMoreThanOne=1
 " use ctrl-tab to switch between buffers
 let g:miniBufExplMapCTabSwitchBufs = 1
-
 
 "////       FILETYPE SETTINGS       ////"
 filetype on                         " enable all filetypes
@@ -67,13 +68,6 @@ imap jj <esc>
 " use tab key to navigate between windows in normal mode
 nnoremap <Tab> <C-W>w
 
-" AUTOCOMPLETION ENHANCEMENTS
-" change behavior of enter key
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" make ctrl-n behave normally
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 " PLUGINS
 " use F2 to toggle nerdtree
 nnoremap <f2> :NERDTreeToggle<CR>
@@ -91,6 +85,8 @@ nnoremap <leader>vs <C-w>v<C-w>l
 nnoremap <leader>hs <C-w>s<C-w>j
 " easier to remember ctag 'go back' using other bracket
 nnoremap <C-[> <C-t>
+" trigger autocomplete
+inoremap <C-space> <C-x><C-o>
 
 "////       ABBREVIATIONS       ////"
 iab lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -99,7 +95,10 @@ iab Teh the
 
 "////       CUSTOM FUNCTIONALITY        ////"
 
-"source the .vimrc file after we save it (no restartig macvim required)
 if has("autocmd")
+    " source the .vimrc file after we save it (no restartig macvim required)
 	autocmd bufwritepost .vimrc source $MYVIMRC
+    " remove autocomplete preview buffer on exit
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
