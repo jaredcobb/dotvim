@@ -35,19 +35,23 @@ set completeopt=longest,menuone     " autocomplete will insert longest common te
 
 syntax on							" turn on syntax highlighting
 colorscheme desert					" color scheme
-filetype on                         " enable all filetypes
-filetype plugin on                  " enable all filetypes
-filetype indent on                  " enable all filetypes
 
 
 "////       PLUGIN CONFIGURATIONS       ////"
 
 " setup pathogen
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 " always open mini buffer explorer
 let g:miniBufExplorerMoreThanOne=1
 " use ctrl-tab to switch between buffers
 let g:miniBufExplMapCTabSwitchBufs = 1
+
+
+"////       FILETYPE SETTINGS       ////"
+filetype on                         " enable all filetypes
+filetype plugin on                  " enable all filetypes
+filetype indent on                  " enable all filetypes
 
 
 "////       CUSTOM MAPPINGS         ////"
