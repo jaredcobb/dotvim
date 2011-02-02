@@ -48,6 +48,11 @@ call pathogen#helptags()
 let g:miniBufExplorerMoreThanOne=1
 " use ctrl-tab to switch between buffers
 let g:miniBufExplMapCTabSwitchBufs = 1
+" setup sqlutilities for our standards
+let g:sqlutil_keyword_case = '\U'
+let g:sqlutil_cmd_terminator = "\ngo"
+let g:sqlutil_align_comma = 1
+
 
 "////       FILETYPE SETTINGS       ////"
 filetype on                         " enable all filetypes
