@@ -87,9 +87,14 @@ nnoremap <leader>hs <C-w>s<C-w>j
 nnoremap <C-[> <C-t>
 " trigger autocomplete
 inoremap <C-space> <C-x><C-o>
+" make autocomplete behave a little better
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "<Tab>"
+inoremap <expr> j pumvisible() ? "\<C-N>" : "j"
+inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
 
 "////       ABBREVIATIONS       ////"
-iab lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+iab lorem Lorizzle ipsum dolizzle my shizz amizzle, consectetuer adipiscing boofron. Check out this sapien velizzle, sizzle volutpat, suscipizzle shut the shizzle up, gravida vizzle, tellivizzle. Pellentesque mofo tortizzle. Sizzle erizzle. Fo shizzle its fo rizzle dolizzle dapibizzle turpis pizzle daahng dawg. Mauris pimpin' nibh izzle turpizzle. Owned izzle the bizzle. Pellentesque shizzle rhoncizzle phat. Yo mamma bling bling habitasse platea dictumst. Sizzle dapibizzle. Dawg tellus urna, pretizzle owned, mattizzle ac, eleifend , shizzle. Uhuh ... yih! phat. Integizzle semper nizzle sizzle pimpin'.
 iab teh the
 iab Teh the
 
@@ -102,3 +107,4 @@ if has("autocmd")
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
+
