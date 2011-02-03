@@ -88,6 +88,8 @@ nnoremap <leader><leader>fb zfa
 nnoremap <leader><leader>vs <C-w>v<C-w>l
 " split horizontally and go to window
 nnoremap <leader><leader>hs <C-w>s<C-w>j
+" refresh ctags manually
+nnoremap <leader><leader>rt :! ctags -R *
 " easier to remember ctag 'go back' using other bracket
 nnoremap <C-[> <C-t>
 " trigger autocomplete
