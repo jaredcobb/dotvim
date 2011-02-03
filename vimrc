@@ -64,8 +64,6 @@ filetype indent on                  " enable all filetypes
 " use <leader><leader> for shortcuts
 " use <leader> for plugins
 
-" change leader key because \ is too far away
-let mapleader = ","
 " use spacebar to trigger colon in normal mode
 nnoremap <space> :
 " quick escape when in insert mode
@@ -81,13 +79,15 @@ nnoremap <leader>t :CommandTFlush<cr>:CommandT<CR>
 
 " SHORTCUTS
 " clear search highlight
-nnoremap <leader>,c :nohlsearch<CR>
+nnoremap <leader><leader>c :nohlsearch<CR>
 " shortcut to fold an HTML tag
-nnoremap <leader>ft Vatzf
+nnoremap <leader><leader>ft Vatzf
+" shortcut to fold braces
+nnoremap <leader><leader>fb zfa
 " split vertically and go to window
-nnoremap <leader>vs <C-w>v<C-w>l
+nnoremap <leader><leader>vs <C-w>v<C-w>l
 " split horizontally and go to window
-nnoremap <leader>hs <C-w>s<C-w>j
+nnoremap <leader><leader>hs <C-w>s<C-w>j
 " easier to remember ctag 'go back' using other bracket
 nnoremap <C-[> <C-t>
 " trigger autocomplete
@@ -98,10 +98,12 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "<Tab>"
 inoremap <expr> j pumvisible() ? "\<C-N>" : "j"
 inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
 
+
 "////       ABBREVIATIONS       ////"
 iab lorem Lorizzle ipsum dolizzle my shizz amizzle, consectetuer adipiscing boofron. Check out this sapien velizzle, sizzle volutpat, suscipizzle shut the shizzle up, gravida vizzle, tellivizzle. Pellentesque mofo tortizzle. Sizzle erizzle. Fo shizzle its fo rizzle dolizzle dapibizzle turpis pizzle daahng dawg. Mauris pimpin' nibh izzle turpizzle. Owned izzle the bizzle. Pellentesque shizzle rhoncizzle phat. Yo mamma bling bling habitasse platea dictumst. Sizzle dapibizzle. Dawg tellus urna, pretizzle owned, mattizzle ac, eleifend , shizzle. Uhuh ... yih! phat. Integizzle semper nizzle sizzle pimpin'.
 iab teh the
 iab Teh the
+
 
 "////       CUSTOM FUNCTIONALITY        ////"
 
