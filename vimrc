@@ -82,8 +82,8 @@ nnoremap <leader>t :CommandTFlush<cr>:CommandT<CR>
 nnoremap <leader><leader>c :nohlsearch<CR>
 " shortcut to fold an HTML tag
 nnoremap <leader><leader>ft Vatzf
-" shortcut to fold braces
-nnoremap <leader><leader>fb zfa
+" shortcut to fold braces (must be inside braces to fold)
+nnoremap <leader><leader>fb zfa{
 " split vertically and go to window
 nnoremap <leader><leader>vs <C-w>v<C-w>l
 " split horizontally and go to window
