@@ -27,7 +27,7 @@ set undodir=~/.vimundo              " custom dir for vim undo files
 set undofile                        " undo actions even after you close and reopen a file
 set ignorecase                      " if all characters are lowercase, it will ignore sensitivity
 set smartcase                       " if some characters are uppercase, it will be case sensitive
-set hlsearch                        " highlight search results
+"set hlsearch                        " highlight search results
 set autowrite                       " write file when switching between files
 set incsearch                       " incremental search results
 set go-=T                           " hide macvim toolbar
@@ -48,6 +48,10 @@ call pathogen#helptags()
 let g:miniBufExplorerMoreThanOne=1
 " use ctrl-tab to switch between buffers
 let g:miniBufExplMapCTabSwitchBufs = 1
+" customize the tab colors a little
+hi MBEChanged guifg=red
+hi MBEVisibleChanged guifg=red gui=bold
+hi MBEVisibleNormal gui=bold
 " setup sqlutilities for our standards
 let g:sqlutil_keyword_case = '\U'
 let g:sqlutil_cmd_terminator = "\ngo"
