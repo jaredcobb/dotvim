@@ -80,6 +80,8 @@ nnoremap <Tab> <C-W>w
 nnoremap <f2> :NERDTreeToggle<CR>
 " flush and execute command-t
 nnoremap <leader>t :CommandTFlush<cr>:CommandT<CR>
+" shortcut for gundo
+nnoremap <f5> :GundoToggle<CR>
 
 " SHORTCUTS
 " clear search highlight
