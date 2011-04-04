@@ -18,7 +18,7 @@ set scrolloff=3                     " always show 3 lines above and below cursor
 set sidescrolloff=3                 " always show 3 characters to the right of horizontal scroll
 set nowrap                          " don't wrap the lines
 set textwidth=0                     " don't wrap the lines
-set wrapmargin=0"                   " don't wrap the lines
+set wrapmargin=0                    " don't wrap the lines
 set visualbell                      " don't beep at me
 set ttyfast                         " better drawing
 set backspace=indent,eol,start      " additional backspace functionality (as expected) 
@@ -56,12 +56,12 @@ hi MBEVisibleNormal gui=bold
 let g:sqlutil_keyword_case = '\U'
 let g:sqlutil_cmd_terminator = "\ngo"
 let g:sqlutil_align_comma = 1
+" setup easymotion leader key combo
+let EasyMotion_leader_key='<leader>h'
 
 
 "////       FILETYPE SETTINGS       ////"
-filetype on                         " enable all filetypes
-filetype plugin on                  " enable all filetypes
-filetype indent on                  " enable all filetypes
+filetype plugin indent on           " enable all filetypes
 
 
 "////       CUSTOM MAPPINGS         ////"
@@ -74,10 +74,15 @@ nnoremap <space> :
 imap jj <esc>
 " use tab key to navigate between windows in normal mode
 nnoremap <Tab> <C-W>w
+" remap the scroll to ctrl-j and ctrl-k
+nnoremap <C-j> <C-e>
+nnoremap <C-k> <C-y>
 
 " PLUGINS
 " use F2 to toggle nerdtree
 nnoremap <f2> :NERDTreeToggle<CR>
+" use F3 to toggle taglist
+nnoremap <f3> :TlistToggle<CR>
 " flush and execute command-t
 nnoremap <leader>t :CommandTFlush<cr>:CommandT<CR>
 " shortcut for gundo
@@ -98,6 +103,12 @@ nnoremap <leader><leader>hs <C-w>s<C-w>j
 nnoremap <leader><leader>rt :! ctags -R * <CR>
 " easier to remember ctag 'go back' using other bracket
 nnoremap <C-[> <C-t>
+" trigger html tidy on the selected text
+command -range=% -nargs=* Tidy <line1>,<line2>!tidy -quiet -indent --show-body-only true --show-warnings false --indent-spaces 4 -wrap 0
+" shortcut for html tidy
+vnoremap <leader><leader>hf :Tidy<cr>
+" shortcut to remove all extra spaces in visual selection
+vnoremap <leader><leader>J :g/^\s*$/d<CR>
 " trigger autocomplete
 inoremap <C-space> <C-x><C-o>
 " make autocomplete behave a little better
@@ -122,4 +133,3 @@ if has("autocmd")
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
-
