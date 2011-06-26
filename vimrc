@@ -113,9 +113,8 @@ vnoremap <leader><leader>J :g/^\s*$/d<CR>
 inoremap <C-space> <C-x><C-o>
 " make autocomplete behave a little better
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "<Tab>"
-inoremap <expr> j pumvisible() ? "\<C-N>" : "j"
-inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
+inoremap <expr> [ pumvisible() ? "\<C-N>" : "["
+inoremap <expr> ] pumvisible() ? "\<C-P>" : "]"
 
 
 "////       ABBREVIATIONS       ////"
