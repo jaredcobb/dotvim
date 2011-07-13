@@ -8,7 +8,7 @@ set tabstop=4						" tab width
 set shiftwidth=4					" shift width
 set softtabstop=4					" soft tab stop
 set expandtab						" expand tab
-set smartindent						" smart idnent the next line
+set smartindent						" smart indent the next line
 set autoindent						" auto indent the next line
 set wildmenu                        " enhanced command line completion
 set wildmode=list:longest			" autocompletion
@@ -115,6 +115,10 @@ inoremap <C-space> <C-x><C-o>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> [ pumvisible() ? "\<C-N>" : "["
 inoremap <expr> ] pumvisible() ? "\<C-P>" : "]"
+" switch to php filetype mode
+nnoremap <leader><leader>1 :set filetype=php<CR>
+" switch to html filetype mode
+nnoremap <leader><leader>2 :set filetype=html<CR>
 
 
 "////       ABBREVIATIONS       ////"
