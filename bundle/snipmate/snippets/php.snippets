@@ -34,8 +34,13 @@ snippet $_ SESSION['...']
 # Start Docblock
 snippet /**
 	/**
-	 * ${1}
-	 **/
+	 * ${1:short description}
+	 *
+	 * ${2:long description}
+	 *
+	 * @param ${3:data type} $${4:parameter name} ${5:A short description}
+	 * @return ${6:data type} ${7:A short description}
+	 */
 # Long Docblock
 snippet /*
 	/* ${1:section title}

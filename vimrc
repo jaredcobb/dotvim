@@ -109,6 +109,10 @@ command -range=% -nargs=* Tidy <line1>,<line2>!tidy -quiet -indent --show-body-o
 vnoremap <leader><leader>hf :Tidy<cr>
 " shortcut to remove all extra spaces in visual selection
 vnoremap <leader><leader>J :g/^\s*$/d<CR>
+" clean up extra parens spacing
+vnoremap <leader><leader>( :s/( /(/g<CR>
+" clean up extra parens spacing
+vnoremap <leader><leader>) :s/ )/)/g<CR>
 " trigger autocomplete
 inoremap <C-space> <C-x><C-o>
 " make autocomplete behave a little better
