@@ -75,8 +75,10 @@ imap jj <esc>
 " use tab key to navigate between windows in normal mode
 nnoremap <Tab> <C-W>w
 " remap the scroll to ctrl-j and ctrl-k
-nnoremap <C-j> <C-e>
-nnoremap <C-k> <C-y>
+nnoremap <C-j> 3<C-e>
+nnoremap <C-k> 3<C-y>
+nnoremap <C-l> 3zl
+nnoremap <C-h> 3zh
 
 " PLUGINS
 " use F2 to toggle nerdtree

@@ -223,3 +223,13 @@ snippet fun
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
+
+# CCB database handling
+snippet result
+	$result = mysql_query($sql, $link_read_only);
+	if (!$result) {
+		main_handle_mysql_error($_SERVER['PHP_SELF'], __LINE__);
+	}
+# CCB read only link
+snippet rolink
+	$link_read_only = db_connect_read_only($session['database_slave_server'], $session['database_name']);
