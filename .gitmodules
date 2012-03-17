@@ -4,3 +4,42 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/align"]
+	path = bundle/align
+	url = git@github.com:jaredcobb/vim-align.git
+[submodule "bundle/easymotion"]
+	path = bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "bundle/indent-js"]
+	path = bundle/indent-js
+	url = https://github.com/vim-scripts/JavaScript-Indent.git
+[submodule "bundle/indent-php"]
+	path = bundle/indent-php
+	url = https://github.com/vim-scripts/php.vim-html-enhanced.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = git@github.com:jaredcobb/vim-matchit.git
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/repeat"]
+	path = bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git@github.com:jaredcobb/snipmate.vim.git
+[submodule "bundle/sqlutilities"]
+	path = bundle/sqlutilities
+	url = https://github.com/vim-scripts/SQLUtilities.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
