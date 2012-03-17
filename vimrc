@@ -85,8 +85,6 @@ nnoremap <C-h> 3zh
 nnoremap <f2> :NERDTreeToggle<CR>
 " use F3 to toggle taglist
 nnoremap <f3> :TlistToggle<CR>
-" flush and execute command-t
-nnoremap <leader>t :CommandTFlush<cr>:CommandT<CR>
 " shortcut for gundo
 nnoremap <f5> :GundoToggle<CR>
 
