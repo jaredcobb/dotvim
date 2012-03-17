@@ -48,10 +48,6 @@ call pathogen#helptags()
 let g:miniBufExplorerMoreThanOne=1
 " use ctrl-tab to switch between buffers
 let g:miniBufExplMapCTabSwitchBufs = 1
-" customize the tab colors a little
-hi MBEChanged guifg=red
-hi MBEVisibleChanged guifg=red gui=bold
-hi MBEVisibleNormal gui=bold
 " setup sqlutilities for our standards
 let g:sqlutil_keyword_case = '\U'
 let g:sqlutil_cmd_terminator = "\ngo"
@@ -85,8 +81,6 @@ nnoremap <C-h> 3zh
 nnoremap <f2> :NERDTreeToggle<CR>
 " use F3 to toggle taglist
 nnoremap <f3> :TlistToggle<CR>
-" shortcut for gundo
-nnoremap <f5> :GundoToggle<CR>
 
 " SHORTCUTS
 " clear search highlight
@@ -126,7 +120,7 @@ nnoremap <leader><leader>2 :set filetype=html<CR>
 
 
 "////       ABBREVIATIONS       ////"
-iab lorem Lorizzle ipsum dolizzle my shizz amizzle, consectetuer adipiscing boofron. Check out this sapien velizzle, sizzle volutpat, suscipizzle shut the shizzle up, gravida vizzle, tellivizzle. Pellentesque mofo tortizzle. Sizzle erizzle. Fo shizzle its fo rizzle dolizzle dapibizzle turpis pizzle daahng dawg. Mauris pimpin' nibh izzle turpizzle. Owned izzle the bizzle. Pellentesque shizzle rhoncizzle phat. Yo mamma bling bling habitasse platea dictumst. Sizzle dapibizzle. Dawg tellus urna, pretizzle owned, mattizzle ac, eleifend , shizzle. Uhuh ... yih! phat. Integizzle semper nizzle sizzle pimpin'.
+iab lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 iab teh the
 iab Teh the
 
