@@ -7,7 +7,7 @@ set number							" show line numbers
 set tabstop=4						" tab width
 set shiftwidth=4					" shift width
 set softtabstop=4					" soft tab stop
-set expandtab						" expand tab
+set noexpandtab						" expand tab
 set smartindent						" smart indent the next line
 set autoindent						" auto indent the next line
 set wildmenu                        " enhanced command line completion
