@@ -23,8 +23,6 @@ set visualbell                      " don't beep at me
 set ttyfast                         " better drawing
 set backspace=indent,eol,start      " additional backspace functionality (as expected) 
 set laststatus=2                    " always show status line
-set undodir=~/.vimundo              " custom dir for vim undo files
-set undofile                        " undo actions even after you close and reopen a file
 set ignorecase                      " if all characters are lowercase, it will ignore sensitivity
 set smartcase                       " if some characters are uppercase, it will be case sensitive
 "set hlsearch                        " highlight search results
