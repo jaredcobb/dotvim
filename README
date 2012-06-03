@@ -9,3 +9,15 @@ Installation (ssh)
 Symlinks
 
     ln -s ~/.vim/vimrc ~/.vimrc
+
+Initialize other sandboxes
+
+	Since I'm using submodules, here's how you get the plugins
+
+	cd ~/.vim
+	git submodule init
+	git submodule update
+
+Pull submodules that have updates
+
+	git submodule foreach git pull
