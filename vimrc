@@ -115,6 +115,8 @@ inoremap <expr> ] pumvisible() ? "\<C-P>" : "]"
 nnoremap <leader><leader>1 :set filetype=php<CR>
 " switch to html filetype mode
 nnoremap <leader><leader>2 :set filetype=html<CR>
+" clear the control p cache (detect new files)
+nnoremap <leader><leader>p :ClearCtrlPCache<CR>
 
 
 "////       ABBREVIATIONS       ////"
