@@ -22,9 +22,6 @@
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = git@github.com:jaredcobb/vim-matchit.git
-[submodule "bundle/minibufexpl"]
-	path = bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
@@ -46,3 +43,6 @@
 [submodule "bundle/phpdoc"]
 	path = bundle/phpdoc
 	url = https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
+[submodule "bundle/colorschemes"]
+	path = bundle/colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git

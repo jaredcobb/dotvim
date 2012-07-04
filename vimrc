@@ -31,11 +31,6 @@ set incsearch                       " incremental search results
 set go-=T                           " hide macvim toolbar
 set completeopt=longest,menuone,preview
 
-syntax on							" turn on syntax highlighting
-colorscheme desert					" color scheme
-
-" tweak autocompletion colors
-highlight Pmenu guibg=#000000 guifg=#00d700
 
 "////       PLUGIN CONFIGURATIONS       ////"
 
@@ -52,6 +47,19 @@ let g:sqlutil_cmd_terminator = "\ngo"
 let g:sqlutil_align_comma = 1
 " setup easymotion leader key combo
 let EasyMotion_leader_key='<leader>h'
+
+" color scheme
+syntax on							" turn on syntax highlighting
+colorscheme ir_black				" color scheme
+" tweak autocompletion colors
+highlight Pmenu guibg=#000000 guifg=#00d700
+" tweak minibufexplorer colors
+hi MBEVisibleActive guifg=#E6E6FF guibg=#000099
+hi MBEVisibleChangedActive guifg=#FFFFFF guibg=#CC2900
+hi MBEVisibleNormal guifg=#CCCCFF guibg=#000000
+hi MBEVisibleChanged guifg=#FF5C33 guibg=#000000
+hi MBENormal guifg=#CCCCFF guibg=#000000
+hi MBEChanged guifg=#FF5C33 guibg=#000000
 
 
 "////       FILETYPE SETTINGS       ////"
@@ -96,7 +104,7 @@ nnoremap <leader><leader>rt :! ctags -R * <CR>
 " easier to remember ctag 'go back' using other bracket
 nnoremap <C-[> <C-t>
 " trigger html tidy on the selected text
-command -range=% -nargs=* Tidy <line1>,<line2>!tidy -quiet -indent --show-body-only true --show-warnings false --indent-spaces 4 -wrap 0
+command! -range=% -nargs=* Tidy <line1>,<line2>!tidy -quiet -indent --show-body-only true --show-warnings false --indent-spaces 4 -wrap 0
 " shortcut for html tidy
 vnoremap <leader><leader>hf :Tidy<cr>
 " shortcut to remove all extra spaces in visual selection
@@ -126,10 +134,9 @@ iab Teh the
 
 
 "////       CUSTOM FUNCTIONALITY        ////"
-
 if has("autocmd")
     " source the .vimrc file after we save it (no restartig macvim required)
-	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd BufWritePost ~/.vimrc source $MYVIMRC
     " remove autocomplete preview buffer on exit
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
