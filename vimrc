@@ -125,6 +125,8 @@ nnoremap <leader><leader>1 :set filetype=php<CR>
 nnoremap <leader><leader>2 :set filetype=html<CR>
 " clear the control p cache (detect new files)
 nnoremap <leader><leader>p :ClearCtrlPCache<CR>
+" php function docblock generator
+nnoremap <leader><leader>d :exe PhpDoc()<CR>
 
 
 "////       ABBREVIATIONS       ////"
