@@ -49,3 +49,6 @@
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = git@github.com:jaredcobb/minibufexpl.vim.git
+[submodule "/Users/jcobb/.vim/bundle/scss-syntax"]
+	path = /Users/jcobb/.vim/bundle/scss-syntax
+	url = https://github.com/cakebaker/scss-syntax.vim.git

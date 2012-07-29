@@ -20,4 +20,8 @@ Initialize other sandboxes
 
 Pull submodules that have updates
 
-	git submodule foreach git pull origin master
+	git submodule foreach git pull
+
+Add new submodules
+
+	git submodule add <repo> ~/.vim/bundle/<plugin-name>
