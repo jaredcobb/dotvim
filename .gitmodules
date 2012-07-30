@@ -52,3 +52,6 @@
 [submodule "/Users/jcobb/.vim/bundle/scss-syntax"]
 	path = /Users/jcobb/.vim/bundle/scss-syntax
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "/Users/jcobb/.vim/bundle/vim-less"]
+	path = /Users/jcobb/.vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git

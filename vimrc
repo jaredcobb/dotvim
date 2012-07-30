@@ -131,7 +131,6 @@ nnoremap <leader><leader>d :exe PhpDoc()<CR>
 " FILETYPE MAPPINGS
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufRead,BufNewFile *.sass set filetype=scss
-au BufRead,BufNewFile *.less set filetype=scss
 
 
 "////       ABBREVIATIONS       ////"
