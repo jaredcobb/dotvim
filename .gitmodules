@@ -49,9 +49,9 @@
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = git@github.com:jaredcobb/minibufexpl.vim.git
-[submodule "/Users/jcobb/.vim/bundle/scss-syntax"]
-	path = /Users/jcobb/.vim/bundle/scss-syntax
+[submodule "bundle/scss-syntax"]
+	path = bundle/scss-syntax
 	url = https://github.com/cakebaker/scss-syntax.vim.git
-[submodule "/Users/jcobb/.vim/bundle/vim-less"]
-	path = /Users/jcobb/.vim/bundle/vim-less
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
