@@ -29,6 +29,7 @@ set smartcase                       " if some characters are uppercase, it will 
 set autowrite                       " write file when switching between files
 set incsearch                       " incremental search results
 set go-=T                           " hide macvim toolbar
+set shell=bash\ -l					" source .profile for vim shell
 set completeopt=longest,menuone,preview
 
 
