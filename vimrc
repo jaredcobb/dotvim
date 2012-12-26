@@ -25,7 +25,6 @@ set backspace=indent,eol,start      " additional backspace functionality (as exp
 set laststatus=2                    " always show status line
 set ignorecase                      " if all characters are lowercase, it will ignore sensitivity
 set smartcase                       " if some characters are uppercase, it will be case sensitive
-"set hlsearch                        " highlight search results
 set autowrite                       " write file when switching between files
 set incsearch                       " incremental search results
 set go-=T                           " hide macvim toolbar
@@ -87,6 +86,24 @@ nnoremap <C-h> 3zh
 nnoremap <f2> :NERDTreeToggle<CR>
 " use F3 to toggle taglist
 nnoremap <f3> :TlistToggle<CR>
+" map the debugger shortcuts
+map <leader>1 :python debugger_resize()<cr>
+map <leader>2 :python debugger_command('step_into')<cr>
+map <leader>3 :python debugger_command('step_over')<cr>
+map <leader>4 :python debugger_command('step_out')<cr>
+map <leader>5 :python debugger_run()<cr>
+map <leader>6 :python debugger_quit()<cr>
+map <leader>9 :python debugger_context()<cr>
+map <leader>0 :python debugger_property()<cr>
+map <leader>9 :python debugger_watch_input("context_get")<cr>A<cr>
+map <leader>0 :python debugger_watch_input("property_get", '<cword>')<cr>A<cr>
+map <leader>b :Bp<cr>
+" setup gdbp settings
+let g:debuggerMaxChildren = 128
+let g:debuggerMaxData = 8192
+let g:debuggerMaxDepth = 100
+" tell the debugger that i'm using minibufexpl
+let g:debuggerMiniBufExpl = 1
 
 " SHORTCUTS
 " clear search highlight
