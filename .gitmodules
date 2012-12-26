@@ -55,3 +55,6 @@
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
+[submodule "bundle/DBGp-Remote-Debugger-Interface"]
+	path = bundle/DBGp-Remote-Debugger-Interface
+	url = git@github.com:jaredcobb/DBGp-Remote-Debugger-Interface.git
