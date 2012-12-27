@@ -98,12 +98,17 @@ map <leader>0 :python debugger_property()<cr>
 map <leader>9 :python debugger_watch_input("context_get")<cr>A<cr>
 map <leader>0 :python debugger_watch_input("property_get", '<cword>')<cr>A<cr>
 map <leader>b :Bp<cr>
+map <leader>e :python debugger_watch_input("eval")<cr>A
 " setup gdbp settings
 let g:debuggerMaxChildren = 128
 let g:debuggerMaxData = 8192
 let g:debuggerMaxDepth = 100
 " tell the debugger that i'm using minibufexpl
 let g:debuggerMiniBufExpl = 1
+" disable default debugger mappings
+let g:debuggerDisableDefaultMappings = 1
+" disable the help menu for the debugger
+let g:debuggerDisableHelpPane = 1
 
 " SHORTCUTS
 " clear search highlight
