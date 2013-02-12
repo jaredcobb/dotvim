@@ -55,9 +55,6 @@
 [submodule "bundle/DBGp-Remote-Debugger-Interface"]
 	path = bundle/DBGp-Remote-Debugger-Interface
 	url = git@github.com:jaredcobb/DBGp-Remote-Debugger-Interface.git
-[submodule "/Users/jcobb/.vim/bundle/ultisnips"]
-	path = /Users/jcobb/.vim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
