@@ -28,9 +28,6 @@
 [submodule "bundle/repeat"]
 	path = bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git@github.com:jaredcobb/snipmate.vim.git
 [submodule "bundle/sqlutilities"]
 	path = bundle/sqlutilities
 	url = https://github.com/vim-scripts/SQLUtilities.git
@@ -58,3 +55,12 @@
 [submodule "bundle/DBGp-Remote-Debugger-Interface"]
 	path = bundle/DBGp-Remote-Debugger-Interface
 	url = git@github.com:jaredcobb/DBGp-Remote-Debugger-Interface.git
+[submodule "/Users/jcobb/.vim/bundle/ultisnips"]
+	path = /Users/jcobb/.vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
