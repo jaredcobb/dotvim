@@ -46,6 +46,10 @@ let g:sqlutil_keyword_case = '\U'
 let g:sqlutil_align_comma = 1
 " setup easymotion leader key combo
 let EasyMotion_leader_key='<leader>h'
+" override ultisnips trigers
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-tab>"
+let g:UltiSnipsListSnippets="<s-tab>"
 
 " color scheme
 syntax on							" turn on syntax highlighting
