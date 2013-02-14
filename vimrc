@@ -50,6 +50,7 @@ let EasyMotion_leader_key='<leader>h'
 let g:UltiSnipsExpandTrigger="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-tab>"
 let g:UltiSnipsListSnippets="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
 " color scheme
 syntax on							" turn on syntax highlighting

@@ -1,0 +1,35 @@
+extends html
+
+# CCB database handling
+snippet result
+$result = mysql_query($sql, $link_read_only);
+if (!$result) {
+	main_handle_mysql_error($_SERVER['PHP_SELF'], __LINE__);
+}
+endsnippet
+
+# CCB read only link
+snippet rolink
+$link_read_only = db_connect_read_only($session['database_slave_server'], $session['database_name']);
+endsnippet
+
+# CCB php function doc block
+snippet /**
+/**
+ * ${1:short description}
+ * 
+ * ${2:long description}
+ * 
+ * @param ${3: data_type} ${4: parameter_name} ${5: short description}
+ * @return ${6:data_type} ${7: short description}
+ **/${8}
+endsnippet
+
+# CCB php file doc block
+snippet @file
+/**
+ * @file
+ * ${1:filename}
+ * ${2:short description}
+ **/${8}
+endsnippet
