@@ -35,8 +35,8 @@ set completeopt=longest,menuone,preview
 "////       PLUGIN CONFIGURATIONS       ////"
 
 " setup pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
 " always open mini buffer explorer
 let g:miniBufExplorerMoreThanOne=1
 " use ctrl-tab to switch between buffers
