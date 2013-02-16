@@ -1,6 +1,8 @@
 "////       GENERAL VIM SETTINGS        ////" 
 
 set nocompatible					" not compatible with vi
+filetype off
+
 set number							" show line numbers
 set hidden							" allow for closing windows and hiding the buffer
 set number							" show line numbers
@@ -34,9 +36,35 @@ set completeopt=longest,menuone,preview
 
 "////       PLUGIN CONFIGURATIONS       ////"
 
-" setup pathogen
-" call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
+" setup vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" add bundles
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'mileszs/ack.vim.git'
+Bundle 'git@github.com:jaredcobb/vim-align.git'
+Bundle 'Lokaltog/vim-easymotion.git'
+Bundle 'vim-scripts/JavaScript-Indent.git'
+Bundle 'vim-scripts/php.vim-html-enhanced.git'
+Bundle 'git@github.com:jaredcobb/vim-matchit.git'
+Bundle 'scrooloose/nerdcommenter.git'
+Bundle 'tpope/vim-repeat.git'
+Bundle 'vim-scripts/SQLUtilities.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'vim-scripts/taglist.vim.git'
+Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
+Bundle 'flazz/vim-colorschemes.git'
+Bundle 'git@github.com:jaredcobb/minibufexpl.vim.git'
+Bundle 'cakebaker/scss-syntax.vim.git'
+Bundle 'groenewege/vim-less.git'
+Bundle 'git@github.com:jaredcobb/DBGp-Remote-Debugger-Interface.git'
+Bundle 'tpope/vim-fugitive.git'
+Bundle 'ervandew/supertab.git'
+Bundle 'SirVer/ultisnips'
+
 " always open mini buffer explorer
 let g:miniBufExplorerMoreThanOne=1
 " use ctrl-tab to switch between buffers
