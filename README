@@ -6,22 +6,11 @@ Installation (ssh)
 
     git clone git@github.com:jaredcobb/dotvim.git ~/.vim
 
+Install Bundles
+
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle/
+	Open Vim and ignore any errors. Run :BundleInstall and restart Vim.
+
 Symlinks
 
     ln -s ~/.vim/vimrc ~/.vimrc
-
-Initialize other sandboxes
-
-	Since I'm using submodules, here's how you get the plugins
-
-	cd ~/.vim
-	git submodule init
-	git submodule update
-
-Pull submodules that have updates
-
-	git submodule foreach git pull
-
-Add new submodules
-
-	git submodule add <repo> ~/.vim/bundle/<plugin-name>
