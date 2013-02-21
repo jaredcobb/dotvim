@@ -31,6 +31,7 @@ set autowrite                       " write file when switching between files
 set incsearch                       " incremental search results
 set go-=T                           " hide macvim toolbar
 set shell=bash\ -l					" source .profile for vim shell
+set fdo-=search						" don't open folds when searching, just show a single hit
 set completeopt=longest,menuone,preview
 
 
@@ -132,6 +133,7 @@ map <leader>9 :python debugger_watch_input("context_get")<cr>A<cr>
 map <leader>0 :python debugger_watch_input("property_get", '<cword>')<cr>A<cr>
 map <leader>b :Bp<cr>
 map <leader>e :python debugger_watch_input("eval")<cr>A
+map <leader>j :Bp<cr>:python debugger_run()<cr>:Bp<cr>
 " setup gdbp settings
 let g:debuggerMaxChildren = 128
 let g:debuggerMaxData = 8192
@@ -142,6 +144,9 @@ let g:debuggerMiniBufExpl = 1
 let g:debuggerDisableDefaultMappings = 1
 " disable the help menu for the debugger
 let g:debuggerDisableHelpPane = 1
+" use a custom color scheme for the breakpoint and current lines in debug mode
+hi DbgCurrent ctermbg=404040 guibg=#404040
+hi DbgBreakPt ctermbg=404040 guibg=#404040
 
 " SHORTCUTS
 " clear search highlight
