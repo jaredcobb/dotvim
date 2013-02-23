@@ -145,6 +145,7 @@ let g:debuggerDisableDefaultMappings = 1
 " disable the help menu for the debugger
 let g:debuggerDisableHelpPane = 1
 " use a custom color scheme for the breakpoint and current lines in debug mode
+let g:useCustomColors = 1
 hi DbgCurrent ctermbg=404040 guibg=#404040
 hi DbgBreakPt ctermbg=404040 guibg=#404040
 
