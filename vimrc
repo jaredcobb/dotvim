@@ -42,84 +42,17 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-" add bundles
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'mileszs/ack.vim.git'
-Bundle 'git@github.com:jaredcobb/vim-align.git'
-Bundle 'Lokaltog/vim-easymotion.git'
-Bundle 'vim-scripts/JavaScript-Indent.git'
-Bundle 'vim-scripts/php.vim-html-enhanced.git'
-Bundle 'git@github.com:jaredcobb/vim-matchit.git'
-Bundle 'scrooloose/nerdcommenter.git'
-Bundle 'tpope/vim-repeat.git'
-Bundle 'vim-scripts/SQLUtilities.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'vim-scripts/taglist.vim.git'
-Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
-Bundle 'flazz/vim-colorschemes.git'
-Bundle 'git@github.com:jaredcobb/minibufexpl.vim.git'
+" add bundles and their settings
 Bundle 'cakebaker/scss-syntax.vim.git'
-Bundle 'groenewege/vim-less.git'
-Bundle 'git@github.com:jaredcobb/DBGp-Remote-Debugger-Interface.git'
-Bundle 'tpope/vim-fugitive.git'
+
 Bundle 'ervandew/supertab.git'
-Bundle 'SirVer/ultisnips'
+" override supertab defaults
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
 
-" always open mini buffer explorer
-let g:miniBufExplorerMoreThanOne=1
-" use ctrl-tab to switch between buffers
-let g:miniBufExplMapCTabSwitchBufs = 1
-" setup sqlutilities for our standards
-let g:sqlutil_keyword_case = '\U'
-let g:sqlutil_align_comma = 1
-" setup easymotion leader key combo
-let EasyMotion_leader_key='<leader>h'
-" override ultisnips trigers
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-tab>"
-let g:UltiSnipsListSnippets="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+Bundle 'flazz/vim-colorschemes.git'
 
-" color scheme
-syntax on							" turn on syntax highlighting
-colorscheme ir_black				" color scheme
-" tweak autocompletion colors
-highlight Pmenu guibg=#000000 guifg=#00d700
-" tweak minibufexplorer colors
-hi MBEVisibleActive guifg=#E6E6FF guibg=#000099
-hi MBEVisibleChangedActive guifg=#FFFFFF guibg=#CC2900
-hi MBEVisibleNormal guifg=#CCCCFF guibg=#000000
-hi MBEVisibleChanged guifg=#FF5C33 guibg=#000000
-hi MBENormal guifg=#CCCCFF guibg=#000000
-hi MBEChanged guifg=#FF5C33 guibg=#000000
-
-
-"////       FILETYPE SETTINGS       ////"
-filetype plugin indent on           " enable all filetypes
-
-
-"////       CUSTOM MAPPINGS         ////"
-" use <leader><leader> for shortcuts
-" use <leader> for plugins
-
-" use spacebar to trigger colon in normal mode
-nnoremap <space> :
-" quick escape when in insert mode
-imap jj <esc>
-" use tab key to navigate between windows in normal mode
-nnoremap <Tab> <C-W>w
-" remap the scroll to ctrl-j and ctrl-k
-nnoremap <C-j> 3<C-e>
-nnoremap <C-k> 3<C-y>
-nnoremap <C-l> 3zl
-nnoremap <C-h> 3zh
-
-" PLUGINS
-" use F2 to toggle nerdtree
-nnoremap <f2> :NERDTreeToggle<CR>
-" use F3 to toggle taglist
-nnoremap <f3> :TlistToggle<CR>
+Bundle 'git@github.com:jaredcobb/DBGp-Remote-Debugger-Interface.git'
 " map the debugger shortcuts
 map <leader>1 :python debugger_resize()<cr>
 map <leader>2 :python debugger_command('step_into')<cr>
@@ -144,14 +77,113 @@ let g:debuggerMiniBufExpl = 1
 let g:debuggerDisableDefaultMappings = 1
 " disable the help menu for the debugger
 let g:debuggerDisableHelpPane = 1
+
+Bundle 'git@github.com:jaredcobb/minibufexpl.vim.git'
+" always open mini buffer explorer
+let g:miniBufExplorerMoreThanOne=1
+" use ctrl-tab to switch between buffers
+let g:miniBufExplMapCTabSwitchBufs = 1
+
+Bundle 'groenewege/vim-less.git'
+
+Bundle 'kien/ctrlp.vim.git'
+" clear the control p cache (detect new files)
+nnoremap <leader><leader>p :ClearCtrlPCache<CR>
+
+Bundle 'Lokaltog/vim-easymotion.git'
+" setup easymotion leader key combo
+let EasyMotion_leader_key='<leader>h'
+
+Bundle 'mileszs/ack.vim.git'
+
+Bundle 'scrooloose/nerdcommenter.git'
+
+Bundle 'scrooloose/nerdtree.git'
+" use F2 to toggle nerdtree
+nnoremap <f2> :NERDTreeToggle<CR>
+
+Bundle 'SirVer/ultisnips'
+" override ultisnips trigers
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+
+Bundle 'Townk/vim-autoclose.git'
+
+Bundle 'tpope/vim-fugitive.git'
+
+Bundle 'tpope/vim-repeat.git'
+
+Bundle 'tpope/vim-surround.git'
+
+Bundle 'vim-scripts/Align.git'
+
+Bundle 'vim-scripts/JavaScript-Indent.git'
+
+Bundle 'vim-scripts/matchit.zip.git'
+
+Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
+" php function docblock generator
+nnoremap <leader><leader>d :exe PhpDoc()<CR>
+
+Bundle 'vim-scripts/SQLUtilities.git'
+" setup sqlutilities for our standards
+let g:sqlutil_keyword_case = '\U'
+let g:sqlutil_align_comma = 1
+
+Bundle 'vim-scripts/taglist.vim.git'
+" use F3 to toggle taglist
+nnoremap <f3> :TlistToggle<CR>
+
+
+
+"////       FILETYPE SETTINGS       ////"
+filetype plugin indent on
+" turn on syntax highlighting
+syntax on
+" set color scheme
+colorscheme ir_black
+" enable scss syntax highlighting if using these extensions
+au BufRead,BufNewFile *.scss set filetype=scss
+au BufRead,BufNewFile *.sass set filetype=scss
+
+
+
+"////       HIGHLIGHT SETTINGS       ////"
+" put highlight variables down here because of vundle load order
+
 " use a custom color scheme for the breakpoint and current lines in debug mode
 let g:useCustomColors = 1
 hi DbgCurrent ctermbg=404040 guibg=#404040
 hi DbgBreakPt ctermbg=404040 guibg=#404040
 
+" tweak minibufexplorer colors
+hi MBEVisibleActive guifg=#E6E6FF guibg=#000099
+hi MBEVisibleChangedActive guifg=#FFFFFF guibg=#CC2900
+hi MBEVisibleNormal guifg=#CCCCFF guibg=#000000
+hi MBEVisibleChanged guifg=#FF5C33 guibg=#000000
+hi MBENormal guifg=#CCCCFF guibg=#000000
+hi MBEChanged guifg=#FF5C33 guibg=#000000
+
+
+
+"////       CUSTOM MAPPINGS         ////"
+" use <leader><leader> for shortcuts
+
+" GENERAL MAPPINGS
+" use spacebar to trigger colon in normal mode
+nnoremap <space> :
+" quick escape when in insert mode
+imap jj <esc>
+" use tab key to navigate between windows in normal mode
+nnoremap <Tab> <C-W>w
+" remap the scroll to ctrl-j and ctrl-k
+nnoremap <C-j> 4<C-e>
+nnoremap <C-k> 4<C-y>
+nnoremap <C-l> 4zl
+nnoremap <C-h> 4zh
+
 " SHORTCUTS
-" clear search highlight
-nnoremap <leader><leader>c :nohlsearch<CR>
 " shortcut to fold an HTML tag
 nnoremap <leader><leader>ft Vatzf
 " shortcut to fold braces (must be inside braces to fold)
@@ -174,24 +206,11 @@ vnoremap <leader><leader>J :g/^\s*$/d<CR>
 vnoremap <leader><leader>( :s/( /(/g<CR>
 " clean up extra parens spacing
 vnoremap <leader><leader>) :s/ )/)/g<CR>
-" trigger autocomplete
-inoremap <C-space> <C-x><C-o>
-" make autocomplete behave a little better
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> [ pumvisible() ? "\<C-N>" : "["
-inoremap <expr> ] pumvisible() ? "\<C-P>" : "]"
 " switch to php filetype mode
 nnoremap <leader><leader>1 :set filetype=php<CR>
 " switch to html filetype mode
 nnoremap <leader><leader>2 :set filetype=html<CR>
-" clear the control p cache (detect new files)
-nnoremap <leader><leader>p :ClearCtrlPCache<CR>
-" php function docblock generator
-nnoremap <leader><leader>d :exe PhpDoc()<CR>
 
-" FILETYPE MAPPINGS
-au BufRead,BufNewFile *.scss set filetype=scss
-au BufRead,BufNewFile *.sass set filetype=scss
 
 
 "////       ABBREVIATIONS       ////"
@@ -200,11 +219,9 @@ iab teh the
 iab Teh the
 
 
+
 "////       CUSTOM FUNCTIONALITY        ////"
 if has("autocmd")
     " source the .vimrc file after we save it (no restartig macvim required)
 	autocmd BufWritePost ~/.vimrc source $MYVIMRC
-    " remove autocomplete preview buffer on exit
-    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
