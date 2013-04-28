@@ -4,7 +4,6 @@ set nocompatible					" not compatible with vi
 filetype off
 
 set number							" show line numbers
-set hidden							" allow for closing windows and hiding the buffer
 set number							" show line numbers
 set tabstop=4						" tab width
 set shiftwidth=4					" shift width
