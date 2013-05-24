@@ -44,6 +44,8 @@ Bundle 'gmarik/vundle'
 " add bundles and their settings
 Bundle 'cakebaker/scss-syntax.vim.git'
 
+Bundle 'henrik/vim-qargs.git'
+
 Bundle 'ervandew/supertab.git'
 " override supertab defaults
 let g:SuperTabMappingForward = '<c-space>'
