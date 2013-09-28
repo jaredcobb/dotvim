@@ -30,6 +30,7 @@ set go-=T                           " hide macvim toolbar
 set guioptions-=r					" get rid of right macvim scrollbar
 set guioptions-=l					" get rid of left macvim scrollbar
 set fdo-=search						" don't open folds when searching, just show a single hit
+set hidden							" let me navigate to other buffers without saving
 set completeopt=preview,longest,menuone
 
 
