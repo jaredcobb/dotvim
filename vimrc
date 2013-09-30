@@ -85,8 +85,8 @@ Bundle 'Lokaltog/vim-easymotion.git'
 " setup easymotion leader key combo
 let EasyMotion_leader_key='<leader>]'
 " setup a very quick and easy way to use easymotion with 'w' and 'b'
-map <C-N> <leader>]b
-map <C-M> <leader>]w
+nmap <s-cr> <leader>]b
+nmap <cr> <leader>]w
 
 Bundle 'mileszs/ack.vim.git'
 
