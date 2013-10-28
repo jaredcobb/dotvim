@@ -73,6 +73,11 @@ let g:vdebug_keymap = {
 \	"eval_visual" : "<leader>e",
 \}
 
+let g:vdebug_features = {
+\	"max_depth" : "2048",
+\	"max_children" : "256",
+\}
+
 Bundle 'groenewege/vim-less.git'
 
 Bundle 'kien/ctrlp.vim.git'
