@@ -9,7 +9,6 @@ set shiftwidth=4					" shift width
 set softtabstop=4					" soft tab stop
 set noexpandtab						" expand tab
 set smartindent						" smart indent the next line
-set autoindent						" auto indent the next line
 set wildmenu                        " enhanced command line completion
 set wildmode=list:longest			" autocompletion
 set foldenable						" enable code folding
@@ -117,8 +116,6 @@ Bundle 'tpope/vim-surround.git'
 
 Bundle 'pangloss/vim-javascript'
 
-Bundle 'captbaritone/better-indent-support-for-php-with-html'
-
 Bundle 'vim-scripts/matchit.zip.git'
 
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
@@ -161,7 +158,7 @@ nnoremap <leader>[ :lprev<cr>
 
 "////       FILETYPE SETTINGS       ////"
 
-filetype plugin indent on
+filetype plugin on
 syntax on
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
 colorscheme ir_black
