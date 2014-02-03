@@ -43,7 +43,8 @@ Bundle 'gmarik/vundle'
 
 " add bundles and their settings
 " global variable definitions & keymaps related to the bundle are right below
-Bundle 'cakebaker/scss-syntax.vim.git'
+
+Bundle 'hail2u/vim-css3-syntax.git'
 
 Bundle 'ervandew/supertab.git'
 " use omnicompletion for the default type
@@ -163,8 +164,8 @@ syntax on
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
 colorscheme ir_black
 " enable scss syntax highlighting if using these extensions
-au BufRead,BufNewFile *.scss set filetype=scss
-au BufRead,BufNewFile *.sass set filetype=scss
+"au BufRead,BufNewFile *.scss set filetype=scss
+"au BufRead,BufNewFile *.sass set filetype=scss
 
 
 
