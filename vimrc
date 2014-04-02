@@ -30,7 +30,8 @@ set guioptions-=r					" get rid of right macvim scrollbar
 set guioptions-=l					" get rid of left macvim scrollbar
 set fdo-=search						" don't open folds when searching, just show a single hit
 set hidden							" let me navigate to other buffers without saving
-set completeopt=preview,longest,menuone
+set hlsearch						" turn on highlighting for search
+set clipboard=unnamed				" yank and paste with clipboard support
 
 
 
@@ -44,6 +45,11 @@ Bundle 'gmarik/vundle'
 " add bundles and their settings
 " global variable definitions & keymaps related to the bundle are right below
 
+Bundle 'mhinz/vim-startify'
+let g:startify_skiplist = ['tags', '/usr/local/Cellar/macvim', 'bundle/.*/doc', 'COMMIT_EDITMSG']
+let g:startify_files_number = 8
+let g:startify_session_persistence = 1
+
 Bundle 'hail2u/vim-css3-syntax.git'
 
 Bundle 'ervandew/supertab.git'
@@ -51,13 +57,24 @@ Bundle 'ervandew/supertab.git'
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabClosePreviewOnPopupClose = 1
 
+Bundle 'Shougo/neocomplete.vim'
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+
 Bundle 'flazz/vim-colorschemes.git'
 
 Bundle 'joonty/vdebug.git'
 " use a compact version for the watch inspector
-let g:vdebug_options = {
-\	"watch_window_style" : "compact"
-\}
+let g:vdebug_options = { 'watch_window_style' : 'compact' }
 " function keys are the debil on a mac!
 let g:vdebug_keymap = {
 \	"run_to_cursor" : "<leader>1",
@@ -73,7 +90,7 @@ let g:vdebug_keymap = {
 \	"eval_visual" : "<leader>e",
 \}
 
-let g:vdebug_features = { 'max_children': 256 }
+let g:vdebug_features = { 'max_children' : 256 }
 
 Bundle 'groenewege/vim-less.git'
 
@@ -84,11 +101,9 @@ nnoremap <leader><leader>p :ClearCtrlPCache<cr>
 let g:ctrlp_working_path_mode = 0
 
 Bundle 'Lokaltog/vim-easymotion.git'
-" setup easymotion leader key combo
-let EasyMotion_leader_key='<leader>]'
 " setup a very quick and easy way to use easymotion with 'w' and 'b'
-nmap <s-cr> <leader>]b
-nmap <cr> <leader>]w
+map <leader>j <Plug>(easymotion-w)
+map <leader>k <Plug>(easymotion-b)
 
 Bundle 'mileszs/ack.vim.git'
 
@@ -152,6 +167,10 @@ let g:syntastic_warning_symbol='❯'
 nnoremap <leader>] :lnext<cr>
 nnoremap <leader>[ :lprev<cr>
 
+Bundle 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 
 
 "////       FILETYPE SETTINGS       ////"
@@ -160,25 +179,27 @@ filetype plugin on
 syntax on
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
 colorscheme ir_black
-" enable scss syntax highlighting if using these extensions
-"au BufRead,BufNewFile *.scss set filetype=scss
-"au BufRead,BufNewFile *.sass set filetype=scss
 
 
 
 "////       HIGHLIGHT SETTINGS       ////"
 " put highlight variables down here because of vundle load order
+hi StartifyHeader ctermfg=46 guifg=#00ff00
 
 
 
 "////       CUSTOM MAPPINGS         ////"
-" use <leader><leader> for shortcuts
+" use <leader> for plugin mappings & shortcuts
+" use <leader><leader> for complex commands
 
 " GENERAL MAPPINGS
-" use spacebar to trigger colon in normal mode
-nnoremap <space> :
+
+" map spacebar to leader key
+map <space> <leader>
 " quick escape when in insert mode
 imap jj <esc>
+" quick escape neocomplete and get to normal mode
+imap <expr>kk neocomplete#close_popup()."\<esc>"
 " use tab key to navigate between windows in normal mode
 nnoremap <Tab> <C-W>w
 " remap the vertical scroll to ctrl-j/k and horizontal scroll to ctrl-h/l
@@ -186,8 +207,22 @@ nnoremap <C-j> 4<C-e>
 nnoremap <C-k> 4<C-y>
 nnoremap <C-h> 4zh
 nnoremap <C-l> 4zl
+" clear the search buffer when hitting return
+nnoremap <CR> :nohlsearch<cr>
+" map leader w as a quick save
+nnoremap <leader>w :w<CR>
 
 " SHORTCUTS
+
+" easier to remember ctag 'go back' using other bracket
+nnoremap <C-[> <C-t>
+nnoremap <leader>ss :SSave<CR>
+nnoremap <leader>sl :SLoad<CR>
+nnoremap <leader>sd :SDelete<CR>
+nnoremap <leader>st :Startify<CR>
+
+" COMPLEX COMMANDS
+
 " shortcut to (f)old and html (t)ag
 nnoremap <leader><leader>ft Vatzf
 " shortcut to (f)old (b)races, must be inside braces to fold
@@ -198,8 +233,6 @@ nnoremap <leader><leader>vs <C-w>v<C-w>l
 nnoremap <leader><leader>hs <C-w>s<C-w>j
 " (r)efresh c(t)ags manually - note, i have a ~/.ctags with my preferences
 nnoremap <leader><leader>rt :! ctags -R --exclude=.git --languages=-javascript *<cr>
-" easier to remember ctag 'go back' using other bracket
-nnoremap <C-[> <C-t>
 " clean up extra parens spacing
 vnoremap <leader><leader>( :s/( /(/g<cr>
 " clean up extra parens spacing
@@ -214,9 +247,52 @@ nnoremap <leader><leader>ws :%s/\s\+$//e<cr>
 
 
 "////       CUSTOM FUNCTIONALITY        ////"
+
 if has("autocmd")
 	" source the .vimrc file after we save it (no restartig macvim required)
 	autocmd BufWritePost ~/.vimrc source $MYVIMRC
 	" remove trailing whitespace before save
 	autocmd BufWritePre * :%s/\s\+$//e
 endif
+
+" restore the buffer when pasting in visual mode (keeps original buffer)
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+
+
+"////              HEADER              ////"
+
+let g:startify_custom_header = [
+\'           |~                 ',
+\'           |.---.             ',
+\'          .`_____`. /\`       ',
+\'          |~xxxxx~| ||        ',
+\'          |_  #  _| ||        ',
+\'     .------`-#-`-----.       ',
+\'    (___|\_________/|_.`.     ',
+\'     /  | _________ | | |     ',
+\'    /   |/   _|_   \| | |     ',
+\'   /   /X|  __|__  |/ `.|     ',
+\'  (  --< \\/    _\//|_ |`.    ',
+\'  `.    ~----.-~=====,:=======',
+\'    ~-._____/___:__(``/| |    ',
+\'      |    |      XX|~ | |    ',
+\'       \__/======| /|  `.|    ',
+\'       |_\|\    /|/_|    )    ',
+\'       |_   \__/   _| .-`     ',
+\'       | \ .`||`. / |(_|      ',
+\'       |  ||.``.||  |   )     ',
+\'       |  ``|  |``  |  /      ',
+\'       |    |  |    |\/       ',
+\'                              ',
+\'    IT''S ABOUT THE BOUNTY    ',
+\'                              ',
+\]
