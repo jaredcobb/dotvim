@@ -137,6 +137,8 @@ nnoremap <leader><leader>d :exe PhpDoc()<cr>
 
 " required by sql utilities plugin
 Bundle 'vim-scripts/Align.git'
+" remap align shortcut to not interfere with my quick save
+map <leader><leader>w= <Plug>AM_w=
 
 Bundle 'vim-scripts/SQLUtilities.git'
 " setup sqlutilities for our standards
@@ -241,8 +243,6 @@ vnoremap <leader><leader>) :s/ )/)/g<cr>
 nnoremap <leader><leader>1 :set filetype=php<cr>
 " switch to html filetype mode
 nnoremap <leader><leader>2 :set filetype=html<cr>
-" kill the trailing (w)hite(s)pace in the entire file
-nnoremap <leader><leader>ws :%s/\s\+$//e<cr>
 
 
 
