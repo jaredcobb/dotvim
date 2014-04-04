@@ -173,6 +173,11 @@ Bundle 'terryma/vim-expand-region'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+Bundle 'itchyny/calendar.vim'
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+nnoremap <leader>C :Calendar<CR>
+
 
 
 "////       FILETYPE SETTINGS       ////"
