@@ -96,7 +96,7 @@ Bundle 'groenewege/vim-less.git'
 
 Bundle 'kien/ctrlp.vim.git'
 " clear the control p cache (detect new files)
-nnoremap <leader><leader>p :ClearCtrlPCache<cr>
+nnoremap <leader>p :ClearCtrlPCache<cr>
 " always start from the working directory
 let g:ctrlp_working_path_mode = 0
 
@@ -133,7 +133,7 @@ Bundle 'vim-scripts/matchit.zip.git'
 
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
 " php function docblock generator
-nnoremap <leader><leader>d :exe PhpDoc()<cr>
+nnoremap <leader>d :exe PhpDoc()<cr>
 
 " required by sql utilities plugin
 Bundle 'vim-scripts/Align.git'
@@ -197,7 +197,6 @@ hi StartifyHeader ctermfg=46 guifg=#00ff00
 
 "////       CUSTOM MAPPINGS         ////"
 " use <leader> for plugin mappings & shortcuts
-" use <leader><leader> for complex commands
 
 " GENERAL MAPPINGS
 
@@ -231,23 +230,23 @@ nnoremap <leader>st :Startify<CR>
 " COMPLEX COMMANDS
 
 " shortcut to (f)old and html (t)ag
-nnoremap <leader><leader>ft Vatzf
+nnoremap <leader>ft Vatzf
 " shortcut to (f)old (b)races, must be inside braces to fold
-nnoremap <leader><leader>fb zfa{
+nnoremap <leader>fb zfa{
 " do a (v)ertical (s)plit and go to window
-nnoremap <leader><leader>vs <C-w>v<C-w>l
+nnoremap <leader>vs <C-w>v<C-w>l
 " do a (h)orizontal (s)plit and go to window
-nnoremap <leader><leader>hs <C-w>s<C-w>j
+nnoremap <leader>hs <C-w>s<C-w>j
 " (r)efresh c(t)ags manually - note, i have a ~/.ctags with my preferences
-nnoremap <leader><leader>rt :! ctags -R --exclude=.git --languages=-javascript *<cr>
+nnoremap <leader>rt :! ctags -R --exclude=.git --languages=-javascript *<cr>
 " clean up extra parens spacing
-vnoremap <leader><leader>( :s/( /(/g<cr>
+vnoremap <leader>( :s/( /(/g<cr>
 " clean up extra parens spacing
-vnoremap <leader><leader>) :s/ )/)/g<cr>
+vnoremap <leader>) :s/ )/)/g<cr>
 " switch to php filetype mode
-nnoremap <leader><leader>1 :set filetype=php<cr>
+nnoremap <leader>1 :set filetype=php<cr>
 " switch to html filetype mode
-nnoremap <leader><leader>2 :set filetype=html<cr>
+nnoremap <leader>2 :set filetype=html<cr>
 
 
 
