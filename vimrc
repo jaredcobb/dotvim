@@ -178,6 +178,12 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 nnoremap <leader>C :Calendar<CR>
 
+Bundle 'skwp/greplace.vim'
+set grepprg=ack
+let g:grep_cmd_opts = '--noheading'
+
+Bundle 'rizzatti/dash.vim'
+nmap <leader>D <Plug>DashSearch
 
 
 "////       FILETYPE SETTINGS       ////"
