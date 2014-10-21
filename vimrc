@@ -112,6 +112,8 @@ Bundle 'scrooloose/nerdcommenter.git'
 Bundle 'scrooloose/nerdtree.git'
 " use F2 to toggle nerdtree
 nnoremap <f2> :NERDTreeToggle<cr>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.DS_Store$', '\.swp$']
 
 Bundle 'SirVer/ultisnips'
 " override ultisnips trigers
