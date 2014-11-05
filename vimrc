@@ -91,6 +91,8 @@ let g:vdebug_keymap = {
 \}
 
 let g:vdebug_features = { 'max_children' : 256 }
+let g:vdebug_options = { 'server' : '192.168.50.1' }
+let g:vdebug_options['path_maps'] = {"/var/www/wordpress/wp-content/": "/Users/jaredcobb/broadway/", "/var/www/": "/Users/jaredcobb/broadway/www/"}
 
 Bundle 'groenewege/vim-less.git'
 
@@ -258,8 +260,6 @@ nnoremap <leader>2 :set filetype=html<cr>
 if has("autocmd")
 	" source the .vimrc file after we save it (no restartig macvim required)
 	autocmd BufWritePost ~/.vimrc source $MYVIMRC
-	" remove trailing whitespace before save
-	autocmd BufWritePre * :%s/\s\+$//e
 endif
 
 " restore the buffer when pasting in visual mode (keeps original buffer)
