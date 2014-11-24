@@ -40,24 +40,26 @@ set clipboard=unnamed				" yank and paste with clipboard support
 " setup vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " add bundles and their settings
 " global variable definitions & keymaps related to the bundle are right below
 
-Bundle 'mhinz/vim-startify'
+Plugin 'mhinz/vim-startify'
 let g:startify_skiplist = ['tags', '/usr/local/Cellar/macvim', 'bundle/.*/doc', 'COMMIT_EDITMSG']
 let g:startify_files_number = 8
 let g:startify_session_persistence = 1
 
-Bundle 'hail2u/vim-css3-syntax.git'
+Plugin 'hail2u/vim-css3-syntax.git'
 
-Bundle 'ervandew/supertab.git'
+Plugin 'ervandew/supertab.git'
 " use omnicompletion for the default type
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-Bundle 'Shougo/neocomplete.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+
+Plugin 'Shougo/neocomplete.vim'
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
@@ -70,9 +72,9 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
-Bundle 'flazz/vim-colorschemes.git'
+Plugin 'flazz/vim-colorschemes.git'
 
-Bundle 'joonty/vdebug.git'
+Plugin 'joonty/vdebug.git'
 " use a compact version for the watch inspector
 let g:vdebug_options = { 'watch_window_style' : 'compact' }
 " function keys are the debil on a mac!
@@ -92,97 +94,106 @@ let g:vdebug_keymap = {
 
 let g:vdebug_features = { 'max_children' : 256 }
 let g:vdebug_options = { 'server' : '192.168.50.1' }
-let g:vdebug_options['path_maps'] = {"/var/www/wordpress/wp-content/": "/Users/jaredcobb/broadway/", "/var/www/": "/Users/jaredcobb/broadway/www/"}
+let g:vdebug_options['path_maps'] = {
+\	"/var/www/wordpress/" : "/Users/jaredcobb/broadway/www/wordpress/",
+\	"/var/www/wordpress/wp-content/themes/vip/" : "/Users/jaredcobb/broadway/themes/vip/",
+\	"/var/www/europeanvoice/" : "/Users/jaredcobb/broadway/www/europeanvoice/"
+\}
 
-Bundle 'groenewege/vim-less.git'
+Plugin 'groenewege/vim-less.git'
 
-Bundle 'kien/ctrlp.vim.git'
+Plugin 'kien/ctrlp.vim.git'
 " clear the control p cache (detect new files)
 nnoremap <leader>p :ClearCtrlPCache<cr>
 " always start from the working directory
 let g:ctrlp_working_path_mode = 0
 
-Bundle 'Lokaltog/vim-easymotion.git'
+Plugin 'Lokaltog/vim-easymotion.git'
 " setup a very quick and easy way to use easymotion with 'w' and 'b'
 map <leader>j <Plug>(easymotion-w)
 map <leader>k <Plug>(easymotion-b)
 
-Bundle 'mileszs/ack.vim.git'
+Plugin 'mileszs/ack.vim.git'
 
-Bundle 'scrooloose/nerdcommenter.git'
+Plugin 'scrooloose/nerdcommenter.git'
 
-Bundle 'scrooloose/nerdtree.git'
+Plugin 'scrooloose/nerdtree.git'
 " use F2 to toggle nerdtree
 nnoremap <f2> :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.DS_Store$', '\.swp$']
 
-Bundle 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 " override ultisnips trigers
 let g:UltiSnipsJumpForwardTrigger="<c-space>"
 let g:UltiSnipsListSnippets="<s-c-space>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
-Bundle 'Townk/vim-autoclose.git'
+Plugin 'Townk/vim-autoclose.git'
 
-Bundle 'tpope/vim-fugitive.git'
+Plugin 'tpope/vim-fugitive.git'
 
-Bundle 'tpope/vim-repeat.git'
+Plugin 'tpope/vim-repeat.git'
 
-Bundle 'tpope/vim-surround.git'
+Plugin 'tpope/vim-surround.git'
 
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
-Bundle 'vim-scripts/matchit.zip.git'
+Plugin 'vim-scripts/matchit.zip.git'
 
-Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
+Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
 " php function docblock generator
 nnoremap <leader>d :exe PhpDoc()<cr>
 
 " required by sql utilities plugin
-Bundle 'vim-scripts/Align.git'
+Plugin 'vim-scripts/Align.git'
 " remap align shortcut to not interfere with my quick save
 map <leader><leader>w= <Plug>AM_w=
 
-Bundle 'vim-scripts/SQLUtilities.git'
+Plugin 'vim-scripts/SQLUtilities.git'
 " setup sqlutilities for our standards
 let g:sqlutil_keyword_case = '\U'
 let g:sqlutil_align_comma = 1
 
-Bundle 'majutsushi/tagbar.git'
+Plugin 'majutsushi/tagbar.git'
 nnoremap <f3> :TagbarToggle<cr>
 
-Bundle 'techlivezheng/vim-plugin-tagbar-phpctags.git'
+Plugin 'techlivezheng/vim-plugin-tagbar-phpctags.git'
 let g:tagbar_phpctags_bin='~/bin/phpctags'
 
-Bundle 'bling/vim-airline.git'
+Plugin 'bling/vim-airline.git'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '[%s] '
+let g:airline#extensions#whitespace#enabled = 0
 " cycle through buffers
 nnoremap <c-tab> :bnext<cr>
 nnoremap <s-c-tab> :bprevious<cr>
 
-Bundle 'scrooloose/syntastic.git'
+Plugin 'scrooloose/syntastic.git'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='❯'
+" let g:syntastic_aggregate_errors = 1
 nnoremap <leader>] :lnext<cr>
 nnoremap <leader>[ :lprev<cr>
 
-Bundle 'terryma/vim-expand-region'
+Plugin 'terryma/vim-expand-region'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-Bundle 'skwp/greplace.vim'
+Plugin 'skwp/greplace.vim'
 set grepprg=ack
 let g:grep_cmd_opts = '--noheading'
 
-Bundle 'rizzatti/dash.vim'
+Plugin 'rizzatti/dash.vim'
 nmap <leader>D <Plug>DashSearch
+
+Plugin 'dsawardekar/wordpress.vim'
+
 
 
 "////       FILETYPE SETTINGS       ////"
