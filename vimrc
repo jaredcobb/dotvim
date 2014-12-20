@@ -65,13 +65,6 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-
 Plugin 'flazz/vim-colorschemes.git'
 
 Plugin 'joonty/vdebug.git'
@@ -93,12 +86,9 @@ let g:vdebug_keymap = {
 \}
 
 let g:vdebug_features = { 'max_children' : 256 }
-let g:vdebug_options = { 'server' : '192.168.50.1' }
-let g:vdebug_options['path_maps'] = {
-\	"/var/www/wordpress/" : "/Users/jaredcobb/broadway/www/wordpress/",
-\	"/var/www/wordpress/wp-content/themes/vip/" : "/Users/jaredcobb/broadway/themes/vip/",
-\	"/var/www/europeanvoice/" : "/Users/jaredcobb/broadway/www/europeanvoice/"
-\}
+"let g:vdebug_options = { 'server' : '192.168.50.1' }
+"let g:vdebug_options['path_maps'] = {
+"\}
 
 Plugin 'groenewege/vim-less.git'
 
@@ -194,12 +184,24 @@ nmap <leader>D <Plug>DashSearch
 
 Plugin 'dsawardekar/wordpress.vim'
 
+Plugin 'ntpeters/vim-better-whitespace'
+let g:strip_whitespace_on_save = 1
 
+Plugin 'kchmck/vim-coffee-script'
 
 "////       FILETYPE SETTINGS       ////"
 
-filetype plugin on
-syntax on
+filetype plugin indent on
+syntax enable
+
+" Enable omni completion and set spacing preferences per filetype
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,scss,sass,javascript,coffee setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
 colorscheme ir_black
 
@@ -289,28 +291,28 @@ vmap <silent> <expr> p <sid>Repl()
 "////              HEADER              ////"
 
 let g:startify_custom_header = [
-\'           |~                 ',
-\'           |.---.             ',
-\'          .`_____`. /\`       ',
-\'          |~xxxxx~| ||        ',
-\'          |_  #  _| ||        ',
-\'     .------`-#-`-----.       ',
-\'    (___|\_________/|_.`.     ',
-\'     /  | _________ | | |     ',
-\'    /   |/   _|_   \| | |     ',
-\'   /   /X|  __|__  |/ `.|     ',
-\'  (  --< \\/    _\//|_ |`.    ',
+\'           |~',
+\'           |.---.',
+\'          .`_____`. /\`',
+\'          |~xxxxx~| ||',
+\'          |_  #  _| ||',
+\'     .------`-#-`-----.',
+\'    (___|\_________/|_.`.',
+\'     /  | _________ | | |',
+\'    /   |/   _|_   \| | |',
+\'   /   /X|  __|__  |/ `.|',
+\'  (  --< \\/    _\//|_ |`.',
 \'  `.    ~----.-~=====,:=======',
-\'    ~-._____/___:__(``/| |    ',
-\'      |    |      XX|~ | |    ',
-\'       \__/======| /|  `.|    ',
-\'       |_\|\    /|/_|    )    ',
-\'       |_   \__/   _| .-`     ',
-\'       | \ .`||`. / |(_|      ',
-\'       |  ||.``.||  |   )     ',
-\'       |  ``|  |``  |  /      ',
-\'       |    |  |    |\/       ',
-\'                              ',
-\'    IT''S ABOUT THE BOUNTY    ',
-\'                              ',
+\'    ~-._____/___:__(``/| |',
+\'      |    |      XX|~ | |',
+\'       \__/======| /|  `.|',
+\'       |_\|\    /|/_|    )',
+\'       |_   \__/   _| .-`',
+\'       | \ .`||`. / |(_|',
+\'       |  ||.``.||  |   )',
+\'       |  ``|  |``  |  /',
+\'       |    |  |    |\/',
+\'',
+\'    IT''S ABOUT THE BOUNTY',
+\'',
 \]
