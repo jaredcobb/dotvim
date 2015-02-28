@@ -86,9 +86,11 @@ let g:vdebug_keymap = {
 \}
 
 let g:vdebug_features = { 'max_children' : 256 }
-"let g:vdebug_options = { 'server' : '192.168.50.1' }
-"let g:vdebug_options['path_maps'] = {
-"\}
+let g:vdebug_options = { 'server' : '192.168.7.100' }
+let g:vdebug_options = { 'ide_key' : 'vagrant' }
+let g:vdebug_options['path_maps'] = {
+\	"/var/www/app": "/Users/jcobb/Development/churchcommunitybuilder/app"
+\}
 
 Plugin 'groenewege/vim-less.git'
 
@@ -200,7 +202,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoi
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,scss,sass,javascript,coffee setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,scss,sass,javascript,coffee,json setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
 colorscheme ir_black
@@ -247,7 +249,7 @@ nnoremap <leader>st :Startify<CR>
 
 " COMPLEX COMMANDS
 
-" shortcut to (f)old and html (t)ag
+" shortcut to (f)old an html (t)ag
 nnoremap <leader>ft Vatzf
 " shortcut to (f)old (b)races, must be inside braces to fold
 nnoremap <leader>fb zfa{
@@ -265,32 +267,15 @@ vnoremap <leader>) :s/ )/)/g<cr>
 nnoremap <leader>1 :set filetype=php<cr>
 " switch to html filetype mode
 nnoremap <leader>2 :set filetype=html<cr>
-
-
-
-"////       CUSTOM FUNCTIONALITY        ////"
-
-if has("autocmd")
-	" source the .vimrc file after we save it (no restartig macvim required)
-	autocmd BufWritePost ~/.vimrc source $MYVIMRC
-endif
-
-" restore the buffer when pasting in visual mode (keeps original buffer)
-function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
-endfunction
-function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>Repl()
+" paste the buffer and drop the overridden contents into the black hole (preserves the buffer)
+vnoremap p "_dP
 
 
 
 "////              HEADER              ////"
 
 let g:startify_custom_header = [
+			\'',
 \'           |~',
 \'           |.---.',
 \'          .`_____`. /\`',
