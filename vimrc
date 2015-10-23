@@ -67,33 +67,6 @@ let g:neocomplete#enable_smart_case = 1
 
 Plugin 'flazz/vim-colorschemes.git'
 
-Plugin 'joonty/vdebug.git'
-" use a compact version for the watch inspector
-let g:vdebug_options = { 'watch_window_style' : 'compact' }
-" function keys are the debil on a mac!
-let g:vdebug_keymap = {
-\	"run_to_cursor" : "<leader>1",
-\	"step_over" : "<leader>2",
-\	"step_into" : "<leader>3",
-\	"step_out" : "<leader>4",
-\	"run" : "<leader>5",
-\	"close" : "<leader>6",
-\	"detach" : "<leader>7",
-\	"set_breakpoint" : "<leader>b",
-\	"get_context" : "<leader>9",
-\	"eval_under_cursor" : "<leader>0",
-\	"eval_visual" : "<leader>e",
-\}
-
-let g:vdebug_features = { 'max_children' : 256 }
-let g:vdebug_options = { 'server' : '192.168.7.100' }
-let g:vdebug_options = { 'ide_key' : 'vagrant' }
-let g:vdebug_options['path_maps'] = {
-\	"/var/www/app": "/Users/jcobb/Development/churchcommunitybuilder/app"
-\}
-
-Plugin 'groenewege/vim-less.git'
-
 Plugin 'kien/ctrlp.vim.git'
 " clear the control p cache (detect new files)
 nnoremap <leader>p :ClearCtrlPCache<cr>
@@ -170,7 +143,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='❯'
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_php_checkers = ['php']
 nnoremap <leader>] :lnext<cr>
 nnoremap <leader>[ :lprev<cr>
 
@@ -185,7 +158,7 @@ let g:grep_cmd_opts = '--noheading'
 Plugin 'rizzatti/dash.vim'
 nmap <leader>D <Plug>DashSearch
 
-Plugin 'dsawardekar/wordpress.vim'
+"Plugin 'dsawardekar/wordpress.vim'
 
 Plugin 'ntpeters/vim-better-whitespace'
 let g:strip_whitespace_on_save = 1
@@ -194,16 +167,19 @@ Plugin 'kchmck/vim-coffee-script'
 
 "////       FILETYPE SETTINGS       ////"
 
+" must be called after all Vundle plugins are defined (not before)
 filetype plugin indent on
 syntax enable
 
 " Enable omni completion and set spacing preferences per filetype
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,scss,sass,javascript,coffee,json setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,scss,sass,coffee,json setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
 colorscheme ir_black
