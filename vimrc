@@ -32,6 +32,7 @@ set fdo-=search						" don't open folds when searching, just show a single hit
 set hidden							" let me navigate to other buffers without saving
 set hlsearch						" turn on highlighting for search
 set clipboard=unnamed				" yank and paste with clipboard support
+set guifont=Hack:h11                " set a better font
 
 
 
