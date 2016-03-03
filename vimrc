@@ -1,7 +1,7 @@
 "////       GENERAL VIM SETTINGS        ////"
 
-set nocompatible					" not compatible with vi
-filetype off
+set nocompatible                    " not compatible with vi
+filetype off                        " temporarily disable filetype detection for vundle
 
 set number							" show line numbers
 set tabstop=4						" tab width
@@ -33,7 +33,7 @@ set hidden							" let me navigate to other buffers without saving
 set hlsearch						" turn on highlighting for search
 set clipboard=unnamed				" yank and paste with clipboard support
 set guifont=Hack:h11                " set a better font
-
+set cursorline
 
 
 "////       PLUGIN CONFIGURATIONS       ////"
