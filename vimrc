@@ -39,9 +39,10 @@ set cursorline
 "////       PLUGIN CONFIGURATIONS       ////"
 
 " setup vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Plugin 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle o_O
+Plugin 'VundleVim/Vundle.vim'
 
 " add bundles and their settings
 " global variable definitions & keymaps related to the bundle are right below
@@ -165,6 +166,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 let g:strip_whitespace_on_save = 1
 
 Plugin 'kchmck/vim-coffee-script'
+
+" no more plugins
+call vundle#end()
 
 "////       FILETYPE SETTINGS       ////"
 
