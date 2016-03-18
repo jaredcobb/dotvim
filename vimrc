@@ -1,39 +1,44 @@
 "////       GENERAL VIM SETTINGS        ////"
 
-set nocompatible                    " not compatible with vi
-filetype off                        " temporarily disable filetype detection for vundle
+set nocompatible                      " not compatible with vi
+filetype off                          " temporarily disable filetype detection for vundle
 
-set number							" show line numbers
-set tabstop=4						" tab width
-set shiftwidth=4					" shift width
-set softtabstop=4					" soft tab stop
-set noexpandtab						" expand tab
-set smartindent						" smart indent the next line
-set wildmenu                        " enhanced command line completion
-set wildmode=list:longest			" autocompletion
-set foldenable						" enable code folding
-set encoding=utf-8                  " default encoding
-set scrolloff=3                     " always show 3 lines above and below cursor position
-set sidescrolloff=3                 " always show 3 characters to the right of horizontal scroll
-set nowrap                          " don't wrap the lines
-set textwidth=0                     " don't wrap the lines
-set wrapmargin=0                    " don't wrap the lines
-set visualbell                      " don't beep at me
-set ttyfast                         " better drawing
-set backspace=indent,eol,start      " additional backspace functionality (as expected)
-set laststatus=2                    " always show status line
-set ignorecase                      " if all characters are lowercase, it will ignore sensitivity
-set smartcase                       " if some characters are uppercase, it will be case sensitive
-set incsearch                       " incremental search results
-set go-=T                           " hide macvim toolbar
-set guioptions-=r					" get rid of right macvim scrollbar
-set guioptions-=l					" get rid of left macvim scrollbar
-set fdo-=search						" don't open folds when searching, just show a single hit
-set hidden							" let me navigate to other buffers without saving
-set hlsearch						" turn on highlighting for search
-set clipboard=unnamed				" yank and paste with clipboard support
-set guifont=Hack:h11                " set a better font
-set cursorline
+set number                            " show line numbers
+set relativenumber                    " show relative numbers
+set tabstop=4                         " tab width
+set shiftwidth=4                      " shift width
+set softtabstop=4                     " soft tab stop
+set noexpandtab                       " expand tab
+set smartindent                       " smart indent the next line
+"set wildmenu                          " enhanced command line completion
+set wildmode=list:longest             " autocompletion
+set completeopt=menu,menuone,longest
+"set completeopt=longest,menuone
+set foldenable                        " enable code folding
+set encoding=utf-8                    " default encoding
+set scrolloff=3                       " always show 3 lines above and below cursor position
+set sidescrolloff=3                   " always show 3 characters to the right of horizontal scroll
+set nowrap                            " don't wrap the lines
+set textwidth=0                       " don't wrap the lines
+set wrapmargin=0                      " don't wrap the lines
+set visualbell                        " don't beep at me
+set ttyfast                           " better drawing
+set backspace=indent,eol,start        " additional backspace functionality (as expected)
+set laststatus=2                      " always show status line
+set ignorecase                        " if all characters are lowercase, it will ignore sensitivity
+set smartcase                         " if some characters are uppercase, it will be case sensitive
+set incsearch                         " incremental search results
+set go-=T                             " hide macvim toolbar
+set guioptions-=r                     " get rid of right macvim scrollbar
+set guioptions-=l                     " get rid of left macvim scrollbar
+set fdo-=search                       " don't open folds when searching, just show a single hit
+set hidden                            " let me navigate to other buffers without saving
+set hlsearch                          " turn on highlighting for search
+set clipboard=unnamed                 " yank and paste with clipboard support
+set guifont=Hack:h11                  " set a better font
+set cursorline                        " highlight the current line
+set lazyredraw                        " redraw only when we need to
+
 
 
 "////       PLUGIN CONFIGURATIONS       ////"
@@ -56,16 +61,17 @@ Plugin 'hail2u/vim-css3-syntax.git'
 
 Plugin 'ervandew/supertab.git'
 " use omnicompletion for the default type
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+
+Plugin 'StanAngeloff/php.vim'
 
 Plugin 'shawncplus/phpcomplete.vim'
 
-Plugin 'Shougo/neocomplete.vim'
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
+Plugin 'dsawardekar/wordpress.vim'
 
 Plugin 'flazz/vim-colorschemes.git'
 
@@ -92,6 +98,7 @@ let NERDTreeIgnore = ['\.DS_Store$', '\.swp$']
 
 Plugin 'SirVer/ultisnips'
 " override ultisnips trigers
+let g:UltiSnipsExpandTrigger = "<c-space>"
 let g:UltiSnipsJumpForwardTrigger="<c-space>"
 let g:UltiSnipsListSnippets="<s-c-space>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
@@ -145,7 +152,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='❯'
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_php_checkers = ['php']
+let g:syntastic_wordpress_phpcs_standard = "WordPress-VIP"
+"let g:syntastic_php_checkers = ['php']
 nnoremap <leader>] :lnext<cr>
 nnoremap <leader>[ :lprev<cr>
 
@@ -167,8 +175,19 @@ let g:strip_whitespace_on_save = 1
 
 Plugin 'kchmck/vim-coffee-script'
 
+Plugin 'sjl/gundo.vim.git'
+nnoremap <leader>u :GundoToggle<CR>
+
+Plugin 'junegunn/vim-easy-align.git'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " no more plugins
 call vundle#end()
+
+
 
 "////       FILETYPE SETTINGS       ////"
 
@@ -206,8 +225,6 @@ hi StartifyHeader ctermfg=46 guifg=#00ff00
 map <space> <leader>
 " quick escape when in insert mode
 imap jj <esc>
-" quick escape neocomplete and get to normal mode
-imap <expr>kk neocomplete#close_popup()."\<esc>"
 " use tab key to navigate between windows in normal mode
 nnoremap <Tab> <C-W>w
 " remap the vertical scroll to ctrl-j/k and horizontal scroll to ctrl-h/l
@@ -228,6 +245,7 @@ nnoremap <leader>ss :SSave<CR>
 nnoremap <leader>sl :SLoad<CR>
 nnoremap <leader>sd :SDelete<CR>
 nnoremap <leader>st :Startify<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " COMPLEX COMMANDS
 

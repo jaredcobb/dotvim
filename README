@@ -1,16 +1,18 @@
-Installation (pull-only repo)
+# My vimrc and bundles
 
-    git clone git://github.com/jaredcobb/dotvim.git ~/.vim
+## Installation (pull-only repo)
 
-Installation (ssh)
+`git clone git://github.com/jaredcobb/dotvim.git ~/.vim`
 
-    git clone git@github.com:jaredcobb/dotvim.git ~/.vim
+## Installation (ssh)
 
-Install Bundles
+`git clone git@github.com:jaredcobb/dotvim.git ~/.vim`
 
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle/
-	Open Vim and ignore any errors. Run :BundleInstall and restart Vim.
+## Install Bundles
 
-Symlinks
+`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+Open Vim and ignore any errors. Run `:BundleInstall` and restart Vim.
 
-    ln -s ~/.vim/vimrc ~/.vimrc
+## Symlinks
+
+`ln -s ~/.vim/vimrc ~/.vimrc`
