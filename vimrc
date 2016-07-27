@@ -203,7 +203,8 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoi
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,scss,sass,coffee,json setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType scss sass setlocal autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,coffee,json setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
 colorscheme ir_black
