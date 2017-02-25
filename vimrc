@@ -72,6 +72,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 
 Plugin 'dsawardekar/wordpress.vim'
+let g:wordpress_vim_wordpress_path="/Users/jared/broadway/www/wordpress"
 
 Plugin 'flazz/vim-colorschemes.git'
 
@@ -155,6 +156,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_php_checkers = ['php', 'wordpress/phpcs', 'phpmd']
 "let g:syntastic_wordpress_phpcs_standard = 'WordPress-VIP'
 let g:syntastic_wordpress_phpcs_standard = 'WordPress'
+let g:syntastic_wordpress_phpcs_standard_file = $HOME . "/config/codesniffer.ruleset.xml"
 nnoremap <leader>] :lnext<cr>
 nnoremap <leader>[ :lprev<cr>
 
