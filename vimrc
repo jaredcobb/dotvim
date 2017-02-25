@@ -62,10 +62,10 @@ Plugin 'hail2u/vim-css3-syntax.git'
 Plugin 'ervandew/supertab.git'
 " use omnicompletion for the default type
 let g:SuperTabClosePreviewOnPopupClose = 1
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+let g:SuperTabContextDiscoverDiscovery = ['&completefunc:<c-x><c-u>', '&omnifunc:<c-x><c-o>']
 
 Plugin 'StanAngeloff/php.vim'
 
@@ -98,10 +98,10 @@ let NERDTreeIgnore = ['\.DS_Store$', '\.swp$']
 
 Plugin 'SirVer/ultisnips'
 " override ultisnips trigers
-let g:UltiSnipsExpandTrigger = "<c-space>"
-let g:UltiSnipsJumpForwardTrigger="<c-space>"
-let g:UltiSnipsListSnippets="<s-c-space>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+let g:UltiSnipsExpandTrigger = '<c-space>'
+let g:UltiSnipsJumpForwardTrigger='<c-space>'
+let g:UltiSnipsListSnippets='<s-c-space>'
+let g:UltiSnipsSnippetDirectories=['UltiSnips', 'custom_snippets']
 
 Plugin 'Townk/vim-autoclose.git'
 
@@ -115,7 +115,7 @@ Plugin 'pangloss/vim-javascript'
 
 Plugin 'vim-scripts/matchit.zip.git'
 
-Plugin 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
+Plugin 'sumpygump/php-documentor-vim'
 " php function docblock generator
 nnoremap <leader>d :exe PhpDoc()<cr>
 
@@ -152,8 +152,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='❯'
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_wordpress_phpcs_standard = "WordPress-VIP"
-"let g:syntastic_php_checkers = ['php']
+let g:syntastic_php_checkers = ['php', 'wordpress/phpcs', 'phpmd']
+"let g:syntastic_wordpress_phpcs_standard = 'WordPress-VIP'
+let g:syntastic_wordpress_phpcs_standard = 'WordPress'
 nnoremap <leader>] :lnext<cr>
 nnoremap <leader>[ :lprev<cr>
 
@@ -183,6 +184,8 @@ Plugin 'junegunn/vim-easy-align.git'
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+" shortcut to format php docblocks (only visually highlight the @ items
+vnoremap <leader>df :EasyAlign 2\ { 'left_margin': 3, 'ignore_groups': ['String'] }<cr>
 
 " no more plugins
 call vundle#end()
@@ -198,12 +201,11 @@ syntax enable
 " Enable omni completion and set spacing preferences per filetype
 " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType scss sass setlocal autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,coffee,json setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " set color scheme, ir_black is in flazz/vim-colorschemes.git
