@@ -74,7 +74,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'dsawardekar/wordpress.vim'
 let g:wordpress_vim_wordpress_path="/Users/jared/broadway/www/wordpress"
 
-Plugin 'flazz/vim-colorschemes.git'
+"Plugin 'flazz/vim-colorschemes.git'
 
 Plugin 'kien/ctrlp.vim.git'
 " clear the control p cache (detect new files)
