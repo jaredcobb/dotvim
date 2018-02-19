@@ -99,10 +99,12 @@ let NERDTreeIgnore = ['\.DS_Store$', '\.swp$']
 
 Plugin 'SirVer/ultisnips'
 " override ultisnips trigers
-let g:UltiSnipsExpandTrigger = '<c-space>'
+let g:UltiSnipsExpandTrigger="<c-tab>"
+" let g:UltiSnipsExpandTrigger = '<c-space>'
 let g:UltiSnipsJumpForwardTrigger='<c-space>'
 let g:UltiSnipsListSnippets='<s-c-space>'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'custom_snippets']
+Plugin 'honza/vim-snippets'
 
 Plugin 'Townk/vim-autoclose.git'
 
@@ -113,6 +115,10 @@ Plugin 'tpope/vim-repeat.git'
 Plugin 'tpope/vim-surround.git'
 
 Plugin 'pangloss/vim-javascript'
+
+Plugin 'mxw/vim-jsx'
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0
 
 Plugin 'vim-scripts/matchit.zip.git'
 
@@ -153,6 +159,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='❯'
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_php_checkers = ['php', 'wordpress/phpcs', 'phpmd']
 "let g:syntastic_wordpress_phpcs_standard = 'WordPress-VIP'
 let g:syntastic_wordpress_phpcs_standard = 'WordPress'
@@ -201,10 +209,10 @@ filetype plugin indent on
 syntax enable
 
 " Enable omni completion and set spacing preferences per filetype
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
