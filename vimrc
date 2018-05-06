@@ -232,8 +232,8 @@ filetype plugin indent on
 syntax enable
 
 " Enable omni completion and set spacing preferences per filetype
-autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+"autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
