@@ -39,7 +39,7 @@ set guioptions-=r                     " get rid of right macvim scrollbar
 set guioptions-=l                     " get rid of left macvim scrollbar
 set guioptions-=m                     " get rid of menu bar
 set guioptions-=T                     " get rid of toolbar
-set guifont=Hack:h11                  " set a better font
+set guifont=Source_Code_Variable:h12    " set a better font
 
 
 
@@ -59,9 +59,13 @@ let g:startify_skiplist = ['tags', 'bundle/.*/doc', 'COMMIT_EDITMSG']
 let g:startify_files_number = 8
 let g:startify_session_persistence = 1
 
+Plugin 'chriskempson/base16-vim'
+
 Plugin 'hail2u/vim-css3-syntax.git'
 
 Plugin 'StanAngeloff/php.vim'
+
+Plugin '2072/PHP-Indenting-for-VIm'
 
 Plugin 'tpope/vim-markdown'
 
@@ -75,9 +79,6 @@ let g:ycm_key_list_stop_completion = ['<Enter>']
 
 Plugin 'dsawardekar/wordpress.vim'
 let g:wordpress_vim_wordpress_path="/Users/jared/broadway/www"
-
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'chriskempson/base16-vim'
 
 Plugin 'kien/ctrlp.vim.git'
 " clear the control p cache (detect new files)
@@ -113,7 +114,8 @@ Plugin 'tobyS/pdv'
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 let g:pdv_template_dir = $HOME ."/.vim/custom_snippets/pdv"
 
-Plugin 'Townk/vim-autoclose.git'
+Plugin 'Raimondi/delimitMate'
+let delimitMate_expand_space=1
 
 Plugin 'tpope/vim-fugitive.git'
 nnoremap <leader>gs :Gstatus<CR>
@@ -188,6 +190,9 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " shortcut to format php docblocks (only visually highlight the @ items)
 vnoremap <leader>df :EasyAlign 2\ { 'left_margin': 2, 'ignore_groups': ['String'] }<cr>gv:EasyAlign 3\ { 'left_margin': 2, 'ignore_groups': ['String'] }<cr>
+vnoremap <leader>af :EasyAlign =<cr>
+
+Plugin 'godlygeek/tabular.git'
 
 " not using vdebug at this time, but this is setup when needed
 " Plugin 'joonty/vdebug'
@@ -232,14 +237,14 @@ filetype plugin indent on
 syntax enable
 
 " Enable omni completion and set spacing preferences per filetype
-"autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP autoindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,coffee,json setlocal autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType php,php.wordpress setlocal omnifunc=phpcomplete#CompletePHP smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,coffee,json setlocal smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 
 
