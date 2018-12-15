@@ -31,6 +31,7 @@ set hlsearch                          " turn on highlighting for search
 set clipboard=unnamed                 " yank and paste with clipboard support
 set cursorline                        " highlight the current line
 set lazyredraw                        " redraw only when we need to
+set formatoptions+=j                  " better line joins with J
 set shell=/bin/zsh                    " set default shell
 set go-=T                             " hide macvim toolbar
 set guioptions-=R                     " get rid of right macvim scrollbar
@@ -39,7 +40,7 @@ set guioptions-=r                     " get rid of right macvim scrollbar
 set guioptions-=l                     " get rid of left macvim scrollbar
 set guioptions-=m                     " get rid of menu bar
 set guioptions-=T                     " get rid of toolbar
-set guifont=Source_Code_Variable:h12    " set a better font
+set guifont=Source_Code_Variable:h12  " set a better font
 
 
 
@@ -237,8 +238,8 @@ filetype plugin indent on
 syntax enable
 
 " Enable omni completion and set spacing preferences per filetype
-autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+"autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
