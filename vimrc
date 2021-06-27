@@ -40,7 +40,7 @@ set guioptions-=r                     " get rid of right macvim scrollbar
 set guioptions-=l                     " get rid of left macvim scrollbar
 set guioptions-=m                     " get rid of menu bar
 set guioptions-=T                     " get rid of toolbar
-set guifont=Source_Code_Variable:h12  " set a better font
+set guifont=Hack:h12                  " set a better font
 
 
 
@@ -162,9 +162,9 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_php_checkers = ['php', 'wordpress/phpcs', 'phpmd']
-let g:syntastic_wordpress_phpcs_standard = 'WordPress-VIP'
-"let g:syntastic_wordpress_phpcs_standard = 'WordPress'
-let g:syntastic_wordpress_phpcs_standard_file = 'phpcs.xml'
+"let g:syntastic_wordpress_phpcs_standard = 'WordPress-VIP'
+let g:syntastic_wordpress_phpcs_standard = 'WordPress'
+let g:syntastic_wordpress_phpcs_standard_file = 'phpcs.xml.dist'
 nnoremap <leader>e :Errors<cr>
 
 Plugin 'terryma/vim-expand-region'
@@ -195,14 +195,25 @@ vnoremap <leader>af :EasyAlign =<cr>
 
 Plugin 'godlygeek/tabular.git'
 
-" not using vdebug at this time, but this is setup when needed
-" Plugin 'joonty/vdebug'
+Plugin 'terryma/vim-multiple-cursors'
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<C-a>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
+Plugin 'vim-vdebug/vdebug'
 let g:vdebug_options = {
-\    "ide_key": "VVVDEBUG",
-\    "break_on_open": 1,
+\    "break_on_open": 0,
+\    "on_close": 'stop',
+\    "layout": 'horizontal',
 \    "path_maps": {
-\        "/srv/www": "/Users/jared/Development/vagrant-local/www",
-\        "/var/www": "/Users/jared/broadway/www"
+\        "/srv/www": "/Users/jared/vagrant-local/www",
+\        "/srv/www/wp-latest-56/public_html/wp-content/plugins": "/Users/jared/repo/plugins"
 \    }
 \}
 " GDBP specific options
@@ -213,13 +224,13 @@ let g:vdebug_features = {
 \}
 " Remap keys
 let g:vdebug_keymap = {
+\    "detach" : "<leader><F4>",
+\    "close" : "<F4>",
 \    "run" : "<F5>",
 \    "run_to_cursor" : "<F6>",
-\    "step_over" : "<F9>",
-\    "step_into" : "<F8>",
 \    "step_out" : "<F7>",
-\    "close" : "<F4>",
-\    "detach" : "<leader><F4>",
+\    "step_over" : "<F8>",
+\    "step_into" : "<F9>",
 \    "set_breakpoint" : "<F10>",
 \    "get_context" : "<F11>",
 \    "eval_under_cursor" : "<F12>",
