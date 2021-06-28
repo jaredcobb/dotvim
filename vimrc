@@ -40,7 +40,7 @@ set guioptions-=r                     " get rid of right macvim scrollbar
 set guioptions-=l                     " get rid of left macvim scrollbar
 set guioptions-=m                     " get rid of menu bar
 set guioptions-=T                     " get rid of toolbar
-set guifont=Hack:h12                  " set a better font
+set guifont=Hack:h14                  " set a better font
 
 
 
@@ -60,26 +60,13 @@ let g:startify_skiplist = ['tags', 'bundle/.*/doc', 'COMMIT_EDITMSG']
 let g:startify_files_number = 8
 let g:startify_session_persistence = 1
 
-Plugin 'chriskempson/base16-vim'
+Plugin 'morhetz/gruvbox'
+
+Plugin 'tpope/vim-rails'
 
 Plugin 'hail2u/vim-css3-syntax.git'
 
-Plugin 'StanAngeloff/php.vim'
-
-Plugin '2072/PHP-Indenting-for-VIm'
-
 Plugin 'tpope/vim-markdown'
-
-Plugin 'shawncplus/phpcomplete.vim'
-let g:phpcomplete_parse_docblock_comments = 1
-
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_list_stop_completion = ['<Enter>']
-
-Plugin 'dsawardekar/wordpress.vim'
-let g:wordpress_vim_wordpress_path="/Users/jared/broadway/www"
 
 Plugin 'kien/ctrlp.vim.git'
 " clear the control p cache (detect new files)
@@ -102,12 +89,6 @@ Plugin 'scrooloose/nerdtree.git'
 nnoremap <f2> :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.DS_Store$', '\.swp$']
-
-Plugin 'SirVer/ultisnips'
-" override ultisnips trigers
-let g:UltiSnipsExpandTrigger = '<c-j>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 Plugin 'tobyS/vmustache'
 
@@ -135,13 +116,6 @@ let g:jsx_ext_required = 0
 
 Plugin 'vim-scripts/matchit.zip.git'
 
-Plugin 'vim-php/tagbar-phpctags.vim'
-
-Plugin 'majutsushi/tagbar.git'
-nnoremap <f3> :TagbarToggle<cr>
-" sort methods by occurance, not by alpha
-let g:tagbar_sort = 0
-
 Plugin 'bling/vim-airline.git'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
@@ -161,10 +135,6 @@ let g:syntastic_warning_symbol='❯'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-let g:syntastic_php_checkers = ['php', 'wordpress/phpcs', 'phpmd']
-"let g:syntastic_wordpress_phpcs_standard = 'WordPress-VIP'
-let g:syntastic_wordpress_phpcs_standard = 'WordPress'
-let g:syntastic_wordpress_phpcs_standard_file = 'phpcs.xml.dist'
 nnoremap <leader>e :Errors<cr>
 
 Plugin 'terryma/vim-expand-region'
@@ -206,37 +176,6 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-Plugin 'vim-vdebug/vdebug'
-let g:vdebug_options = {
-\    "break_on_open": 0,
-\    "on_close": 'stop',
-\    "layout": 'horizontal',
-\    "path_maps": {
-\        "/srv/www": "/Users/jared/vagrant-local/www",
-\        "/srv/www/wp-latest-56/public_html/wp-content/plugins": "/Users/jared/repo/plugins"
-\    }
-\}
-" GDBP specific options
-let g:vdebug_features = {
-\    "max_depth": "24",
-\    "max_data": "-1",
-\    "max_children": "128"
-\}
-" Remap keys
-let g:vdebug_keymap = {
-\    "detach" : "<leader><F4>",
-\    "close" : "<F4>",
-\    "run" : "<F5>",
-\    "run_to_cursor" : "<F6>",
-\    "step_out" : "<F7>",
-\    "step_over" : "<F8>",
-\    "step_into" : "<F9>",
-\    "set_breakpoint" : "<F10>",
-\    "get_context" : "<F11>",
-\    "eval_under_cursor" : "<F12>",
-\    "eval_visual" : "<Leader>E",
-\}
-
 " no more plugins
 call vundle#end()
 
@@ -263,7 +202,7 @@ autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,coffee,json setlocal smartind
 "////       HIGHLIGHT SETTINGS       ////"
 " put highlight variables down here because of vundle load order
 hi StartifyHeader ctermfg=46 guifg=#00ff00
-colorscheme base16-irblack
+colorscheme gruvbox
 hi Search guibg=black guifg=white gui=underline ctermbg=black ctermfg=white cterm=underline
 
 
@@ -301,8 +240,6 @@ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " SHORTCUTS
 
-" easier to remember ctag 'go back' using other bracket
-nnoremap <C-[> <C-t>
 " cycle through buffers
 nnoremap <c-tab> :bnext<cr>
 nnoremap <s-c-tab> :bprevious<cr>
