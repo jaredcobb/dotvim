@@ -33,13 +33,6 @@ set cursorline                        " highlight the current line
 set lazyredraw                        " redraw only when we need to
 set formatoptions+=j                  " better line joins with J
 set shell=/bin/zsh                    " set default shell
-set go-=T                             " hide macvim toolbar
-set guioptions-=R                     " get rid of right macvim scrollbar
-set guioptions-=L                     " get rid of left macvim scrollbar
-set guioptions-=r                     " get rid of right macvim scrollbar
-set guioptions-=l                     " get rid of left macvim scrollbar
-set guioptions-=m                     " get rid of menu bar
-set guioptions-=T                     " get rid of toolbar
 set guifont=Hack:h12                  " set a better font
 
 
@@ -60,7 +53,8 @@ let g:startify_skiplist = ['tags', 'bundle/.*/doc', 'COMMIT_EDITMSG']
 let g:startify_files_number = 8
 let g:startify_session_persistence = 1
 
-Plugin 'chriskempson/base16-vim'
+"Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'hail2u/vim-css3-syntax.git'
 
@@ -72,14 +66,6 @@ Plugin 'tpope/vim-markdown'
 
 Plugin 'shawncplus/phpcomplete.vim'
 let g:phpcomplete_parse_docblock_comments = 1
-
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_list_stop_completion = ['<Enter>']
-
-Plugin 'dsawardekar/wordpress.vim'
-let g:wordpress_vim_wordpress_path="/Users/jared/broadway/www"
 
 Plugin 'kien/ctrlp.vim.git'
 " clear the control p cache (detect new files)
@@ -103,17 +89,7 @@ nnoremap <f2> :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.DS_Store$', '\.swp$']
 
-Plugin 'SirVer/ultisnips'
-" override ultisnips trigers
-let g:UltiSnipsExpandTrigger = '<c-j>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-
 Plugin 'tobyS/vmustache'
-
-Plugin 'tobyS/pdv'
-nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
-let g:pdv_template_dir = $HOME ."/.vim/custom_snippets/pdv"
 
 Plugin 'Raimondi/delimitMate'
 let delimitMate_expand_space=1
@@ -134,13 +110,6 @@ Plugin 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 
 Plugin 'vim-scripts/matchit.zip.git'
-
-Plugin 'vim-php/tagbar-phpctags.vim'
-
-Plugin 'majutsushi/tagbar.git'
-nnoremap <f3> :TagbarToggle<cr>
-" sort methods by occurance, not by alpha
-let g:tagbar_sort = 0
 
 Plugin 'bling/vim-airline.git'
 let g:airline_left_sep = '▶'
@@ -175,9 +144,6 @@ Plugin 'skwp/greplace.vim'
 set grepprg=ack
 let g:grep_cmd_opts = '--noheading'
 
-Plugin 'rizzatti/dash.vim'
-nmap <leader>D <Plug>DashSearch
-
 Plugin 'ntpeters/vim-better-whitespace'
 let g:strip_whitespace_on_save = 1
 
@@ -206,37 +172,6 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-Plugin 'vim-vdebug/vdebug'
-let g:vdebug_options = {
-\    "break_on_open": 0,
-\    "on_close": 'stop',
-\    "layout": 'horizontal',
-\    "path_maps": {
-\        "/srv/www": "/Users/jared/vagrant-local/www",
-\        "/srv/www/wp-latest-56/public_html/wp-content/plugins": "/Users/jared/repo/plugins"
-\    }
-\}
-" GDBP specific options
-let g:vdebug_features = {
-\    "max_depth": "24",
-\    "max_data": "-1",
-\    "max_children": "128"
-\}
-" Remap keys
-let g:vdebug_keymap = {
-\    "detach" : "<leader><F4>",
-\    "close" : "<F4>",
-\    "run" : "<F5>",
-\    "run_to_cursor" : "<F6>",
-\    "step_out" : "<F7>",
-\    "step_over" : "<F8>",
-\    "step_into" : "<F9>",
-\    "set_breakpoint" : "<F10>",
-\    "get_context" : "<F11>",
-\    "eval_under_cursor" : "<F12>",
-\    "eval_visual" : "<Leader>E",
-\}
-
 " no more plugins
 call vundle#end()
 
@@ -249,9 +184,9 @@ filetype plugin indent on
 syntax enable
 
 " Enable omni completion and set spacing preferences per filetype
-"autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags smartindent shiftwidth=2 softtabstop=2 tabstop=2 noexpandtab
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS smartindent shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
@@ -263,7 +198,9 @@ autocmd FileType ruby,haml,eruby,yaml,cucumber,ejs,coffee,json setlocal smartind
 "////       HIGHLIGHT SETTINGS       ////"
 " put highlight variables down here because of vundle load order
 hi StartifyHeader ctermfg=46 guifg=#00ff00
-colorscheme base16-irblack
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 hi Search guibg=black guifg=white gui=underline ctermbg=black ctermfg=white cterm=underline
 
 
